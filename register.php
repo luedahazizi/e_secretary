@@ -76,54 +76,6 @@
         </div>
   </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script type="text/javascript">
-$(function(){
-    alert('hello');
-});
-//     $('#register').click(function(e){
-//          var valid = this.form.checkValidity();
-//          if(valid){
-           
-
-
-//         var emer = $('#emer').val();
-//         var mbiemer = $('#mbiemer').val();
-//         var username = $('#username').val();
-       
-//         var password = $('#password').val();
-//         var email = $('#email').val();
-//         var telefon = $('#telefon').val();
-//         var datelindje = $('#datelindje').val();
-//         var viti = $('#viti').val();
-//         var paraleli = $('#paraleli').val();
-
-//         e.preventDefault();
-
-//                 $.ajax({
-//                  type: 'POST',
-//                  url: 'submit.php',
-//                 data: {emer: emer, mbiemer: mbiemer, username: username, email: email, telefon: telefon, datelindje: datelindje, viti: viti, paraleli: paraleli},
-//                     success: function(data){
-//                     Swal.fire(
-//                      'Successful!',
-//                      'suc',
-//                       'success')
-
-//                 },
-//                 error: function(data){
-//                     Swal.fire(
-//                      'Errors!',
-//                       'There were errors  while saving the data!',
-//                       'error'
-//                     )
-//                 }
-//             });    
-
-//     }
-//     });
-   
-// });
+  
 </body>
 </html>

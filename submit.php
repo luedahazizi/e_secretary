@@ -2,11 +2,32 @@
 require_once('config.php'); 
 ?>
 <?php
+if(isset($_POST['get_username']))
+{
+ $user_name=str_replace(' ', '', $_POST['get_username']);
+ random_username($user_name);
+ exit();
+}
+
+function random_username($user_name)
+{
+ $new_name = $user_name.mt_rand(0,9);
+ check_user_name($new_name,$user_name);
+}
+
+function check_user_name($new_name,$user_name)
+{
+ $select ="select * from users where username='$new_name'";
+
+ {
+  echo $new_name;
+ }
+}
  if(isset($_POST)){
     $emer        = $_POST['emer'];
     $mbiemer     = $_POST['mbiemer'];
-    $username    = $_POST['username'];
-    $password    = $_POST['password'];
+    $username    = $_POST['username_val'];
+    //$password    = 'student';
     $email       = $_POST['email'];
     $telefon     = $_POST['telefon'];
     $datelindje  = $_POST['datelindje'];
@@ -14,7 +35,7 @@ require_once('config.php');
     $paraleli    = $_POST['paraleli'];
 
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[telefon]')";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'student', '$_POST[email]', '$_POST[telefon]')";
  $sql2 = "INSERT INTO nxenes (datelindje,viti,paraleli,NxenesID,PrindID)
  VALUES (  '$_POST[datelindje]', '$_POST[viti]', '$_POST[paraleli]',last_insert_id(),last_insert_id())";
 

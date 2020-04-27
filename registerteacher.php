@@ -8,7 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+function get_username()
+{
+ var name=$("#emer").val();
+ if(name!="")
+ {
+  $.ajax
+  ({
+   type:'post',
+   url:'submitparent.php',
+   data:{
+    get_username:name
+   },
+   success:function(response) 
+   {
+    $("#username").css({"display":"block"});
+    $("#username").html("UserName : "+response);
+    $("#username_val").val(response);
+   }
+  });
+ }
+}
+</script>
 </head>
 <body>
     
@@ -35,22 +58,19 @@
             <div class="row">
             <div class="form-group col-md-6">
             <label for="username"><b>Username</b></label>
-            <input class="form-control" type="text"  id="username" name="username" required>
-            </div>
-            <div class="form-group col-md-6">
-            <label for="password"><b>Password</b></label>
-            <input class="form-control" type="password"   id="password" name="password" required>
-</div>
-</div>
-<div class="row">
-<div class="form-group col-md-6">
-            <label for="email"><b>Email</b></label>
-            <input class="form-control" type="email"  id="email" name="email" required>
+            <input class="form-control" type="text"  id="username_val" name="username_val" onblur="get_username();" required>
             </div>
             <div class="form-group col-md-6">
             <label for="telefon"><b>Telefon</b></label>
             <input class="form-control" type="text"  id="telefon" name="telefon" required>
 </div>
+</div>
+<div class="row">
+<div class="form-group col-md-12">
+            <label for="email"><b>Email</b></label>
+            <input class="form-control" type="email"  id="email" name="email" required>
+            </div>
+            
 </div>
 <div class="row">
 <div class="form-group col-md-12">
@@ -75,54 +95,6 @@
         </div>
   </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script type="text/javascript">
-$(function(){
-    alert('hello');
-});
-//     $('#register').click(function(e){
-//          var valid = this.form.checkValidity();
-//          if(valid){
-           
-
-
-//         var emer = $('#emer').val();
-//         var mbiemer = $('#mbiemer').val();
-//         var username = $('#username').val();
-       
-//         var password = $('#password').val();
-//         var email = $('#email').val();
-//         var telefon = $('#telefon').val();
-//         var datelindje = $('#datelindje').val();
-//         var viti = $('#viti').val();
-//         var paraleli = $('#paraleli').val();
-
-//         e.preventDefault();
-
-//                 $.ajax({
-//                  type: 'POST',
-//                  url: 'submit.php',
-//                 data: {emer: emer, mbiemer: mbiemer, username: username, email: email, telefon: telefon, datelindje: datelindje, viti: viti, paraleli: paraleli},
-//                     success: function(data){
-//                     Swal.fire(
-//                      'Successful!',
-//                      'suc',
-//                       'success')
-
-//                 },
-//                 error: function(data){
-//                     Swal.fire(
-//                      'Errors!',
-//                       'There were errors  while saving the data!',
-//                       'error'
-//                     )
-//                 }
-//             });    
-
-//     }
-//     });
-   
-// });
+    
 </body>
 </html>

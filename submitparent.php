@@ -2,19 +2,40 @@
 require_once('config.php'); 
 ?>
 <?php
+
+if(isset($_POST['get_username']))
+{
+ $user_name=str_replace(' ', '', $_POST['get_username']);
+ random_username($user_name);
+ exit();
+}
+
+function random_username($user_name)
+{
+ $new_name = $user_name.mt_rand(0,9);
+ check_user_name($new_name,$user_name);
+}
+
+function check_user_name($new_name,$user_name)
+{
+ $select ="select * from users where username='$new_name'";
+
+ {
+  echo $new_name;
+ }
+}
  if(isset($_POST)){
     $emer        = $_POST['emer'];
     $mbiemer     = $_POST['mbiemer'];
-    $username    = $_POST['username'];
-    $password    = $_POST['password'];
+    $username    = $_POST['username_val'];
     $email       = $_POST['email'];
     $telefon     = $_POST['telefon'];
-    $arsimi  = $_POST['arsimi'];
+    $arsimi  =   $_POST['arsimi'];
     $status       = $_POST['status'];
     $profesioni    = $_POST['profesioni'];
 
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[telefon]')";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'esecretary', '$_POST[email]', '$_POST[telefon]')";
  $sql2 = "INSERT INTO prindi (arsimi,status,profesioni,PrindID)
  VALUES (  '$_POST[arsimi]', '$_POST[status]', '$_POST[profesioni]',last_insert_id())";
 

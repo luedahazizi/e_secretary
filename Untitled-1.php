@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Almendra" rel="stylesheet">
-    </head>
-    
+   
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -97,6 +94,7 @@
                
                 
             </div>
+            <center style="font-size:65px">Welcome to teacher's page!</center>
             <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 #lista a {
@@ -116,31 +114,31 @@
 }
 
 #dashboard {
-  top: 80px;
-  background-color: #4CAF50;
+  top: 90px;
+  background-color: #225029;
 }
 
 #attendance {
-  top: 140px;
-  background-color: #2196F3;
+  top: 150px;
+  background-color: #2B6F36;
 }
 
 #subjects {
-  top: 200px;
-  background-color: #f44336;
+  top: 210px;
+  background-color: #2C7638;
 }
 
 #Marks {
-  top: 260px;
-  background-color: #555;
+  top: 270px;
+  background-color: #4B9557;
 }
 #notify{
-  top:320px;
-  background-color:#666;
+  top:330px;
+  background-color:#589B63;
 }
 #events{
-  top:380px;
-  background-color:#777;
+  top:390px;
+  background-color:#75AD7E;
 }
 </style>
 </head>

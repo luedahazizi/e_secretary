@@ -41,9 +41,7 @@ include("connection.php");
 
        }
     }
-    else{
-        header("location:form.html")
-    }
+
 
 
 

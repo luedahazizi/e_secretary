@@ -1,36 +1,50 @@
 <?php
 include("connection.php");
-$user=$_POST['username'];
-$pass=$_POST['password'];
-var_dump($user);die;
-// if(isset($user)&& isset($pass)){
-	
-// 	$role="select  RoliEmer 
-// 	       from user u join roli r on u.RolID=r.RoliID 
-// 	      where username='."$user".' and password='."$pass".' limit 1";
-// 	      $result=mysql_query($role);
 
-// 	      if(mysql_num_rows($result)==1 && $role=="admin"){
-	      	
-// 	      	window.location.href="admin.php";
-// 	      }
-// 	      else if (mysql_num_rows($result)==1 && $role=="mesues")
-// 	      {
-// 	      	window.location.href="mesues.php";
-// 	      }
-// 	      else if (mysql_num_rows($result)==1 && $role=="nxenes") {
-// 	      window.location.href="nxenes.php";
-// 	      }
-// 	      else if (mysql_num_rows($result)==1 && $role=="prind") {
-// 	      	window.location.href="prind.php";
-// 	      }
-// 	      else{
-// 	      	document.getElementByID("mesazh").innerHTML="ky user nuk ekziston";
+ if(isset($_POST['username'])&& isset($_POST['password'])) {
+     $user = $_POST['username'];
+     $pass = $_POST['password'];
 
-// 	      }
-// 	  }
-// 	      else {
-// 	      	document.getElementByID("mesazh").innerHTML="Ju lutem plotesoni te dhenat e mesiperme";
-// 	      }
-// 	  }
-// ?>
+ }
+ else{
+     echo "Username/Password i gabuar";
+ }
+     $role = "select  RoliEmer 
+ 	       from user u join roli r on u.RolID=r.RoliID 
+ 	      where ( username='$user' or email='$user') and password='$pass'";
+
+     $result = mysqli_query($connect, $role);
+
+    if(mysqli_num_rows($result)==1){
+
+        session_start();
+        $row=mysqli_fetch_array($result,MYSQLI_BOTH);
+
+        $_SESSION["username"]=$user;
+        $_SESSION["role"] =  $row['RoliEmer'];
+
+        if($row['RoliEmer']=="admin"){
+            header("location:admin.php");
+        }
+       else  if($row['RoliEmer']=="mesues"){
+            header("location:mesues.php");
+        }
+       else if($row['RoliEmer']=="nxenes"){
+            header("location:nxenes.php");
+        }
+       else if($row['RoliEmer']=="prind"){
+            header("location:prind.php");
+        }
+       else
+       {
+          header("location:form.html");
+
+       }
+    }
+    else{
+        header("location:form.html")
+    }
+
+
+
+

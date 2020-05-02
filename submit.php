@@ -1,7 +1,9 @@
 <?php
 require_once('config.php'); 
 ?>
+
 <?php
+//generate automatic username
 if(isset($_POST['get_username']))
 {
  $user_name=str_replace(' ', '', $_POST['get_username']);
@@ -33,23 +35,41 @@ function check_user_name($new_name,$user_name)
     $datelindje  = $_POST['datelindje'];
     $viti        = $_POST['viti'];
     $paraleli    = $_POST['paraleli'];
-
+   
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'student', '$_POST[email]', '$_POST[telefon]')";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]')";
  $sql2 = "INSERT INTO nxenes (datelindje,viti,paraleli,NxenesID,PrindID)
  VALUES (  '$_POST[datelindje]', '$_POST[viti]', '$_POST[paraleli]',last_insert_id(),last_insert_id())";
+ 
+ 
+ //check if the user exist
+if (!($conn->query($sql1))) {
+    
+     echo "This user already exists";
+ }else{
+     //send an welcome message
+    $to = $_POST['email'];
+ $subject = 'Hello from e-secretary';
+ $message = 'Welcome to e-secretary.Now you are a member and your password is-12345';
+ $headers = "From: sonjetamimini@gmail.com";
+ mail($to, $subject, $message, $headers);
+   
+ echo "Succes";
 
+ }
 
 
 if ($conn->query($sql1) === TRUE ) {
+    
 echo "New record created successfully";
 } else {
-echo "Error: " . $sql1 . "<br>" . $conn->error;
+//echo "Error ";
 }
 if ($conn->query($sql2) === TRUE  ) {
+    
     echo "New record created successfully";
     } else  {
-    echo "Error: " . $sql2 ."<br>" . $conn->error;
+    echo "Error " ;
     }
 
 $conn->close();

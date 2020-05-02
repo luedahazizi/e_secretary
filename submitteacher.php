@@ -40,18 +40,32 @@ function check_user_name($new_name,$user_name)
 VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '1234', '$_POST[email]', '$_POST[telefon]')";
  $sql2 = "INSERT INTO mesues (datelindje,foto,MesuesID)
  VALUES (  '$_POST[datelindje]', '$_POST[foto]',last_insert_id())";
+//check if the user exist
+if (!($conn->query($sql1))) {
+    
+    echo "This user already exists";
+}else{
+    //send an welcome message
+   $to = $_POST['email'];
+$subject = 'Hello from e-secretary';
+$message = 'Welcome to e-secretary.Now you are a member and your password is-12345';
+$headers = "From: sonjetamimini@gmail.com";
+mail($to, $subject, $message, $headers);
+  
+echo "Succes";
 
+}
 
 
 if ($conn->query($sql1) === TRUE ) {
 echo "New record created successfully";
 } else {
-echo "Error: " . $sql1 . "<br>" . $conn->error;
+echo "Error";
 }
 if ($conn->query($sql2) === TRUE  ) {
     echo "New record created successfully";
     } else  {
-    echo "Error: " . $sql2 ."<br>" . $conn->error;
+    echo "Error";
     }
 
 $conn->close();

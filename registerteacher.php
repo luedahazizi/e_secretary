@@ -1,5 +1,6 @@
-
-
+<?php
+require_once('config.php'); 
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script src="jquery-3.3.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 function get_username()
@@ -18,7 +20,7 @@ function get_username()
   $.ajax
   ({
    type:'post',
-   url:'submitparent.php',
+   url:'submitteacher.php',
    data:{
     get_username:name
    },
@@ -75,7 +77,7 @@ function get_username()
 <div class="row">
 <div class="form-group col-md-12">
             <label for="datelindje"><b>Datelindje</b></label>
-            <input class="form-control" type="date"  id="ditelindje" name="datelindje" required>
+            <input class="form-control" type="date"  id="datelindje" name="datelindje" required>
             <div class="row">
             </div>
             <div class="row">
@@ -95,6 +97,50 @@ function get_username()
         </div>
   </div>
     </div>
-    
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script type="text/javascript">
+$(function(){
+   $('#register').click(function(e){
+       var valid = this.form.checkValidity();
+       if(valid){
+           var emer = $('#emer').val();
+           var mbiemer = $('#mbiemer').val();
+           var username_val = $('#username_val').val();
+           var telefon = $('#telefon').val();
+           var email = $('#email').val();
+           var datelindje = $('#datelindje').val();
+           var foto = $('#foto').val();
+
+           e.preventDefault();
+           $.ajax({
+               type: 'POST',
+               url:'submitteacher.php',
+               data:{emer: emer,mbiemer: mbiemer,username_val: username_val,telefon: telefon,email:email,datelindje:datelindje ,foto:foto},
+  success: function(data){
+    Swal.fire(
+        'e-secretary',
+                      data,
+                      )
+   
+
+  },
+  error: function(data){
+    Swal.fire({
+        icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!'
+    }
+        )
+   
+  }
+  });
+       }
+   
+    });
+
+});
+</script>
 </body>
 </html>

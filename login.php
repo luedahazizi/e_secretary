@@ -7,8 +7,9 @@ include("connection.php");
 
  }
  else{
-     echo "Username/Password i gabuar";
+     exit('Please fill both the username and password fields!');
  }
+
      $role = "select  RoliEmer 
  	       from user u join roli r on u.RolID=r.RoliID 
  	      where ( username='$user' or email='$user') and password='$pass'";
@@ -20,6 +21,7 @@ include("connection.php");
         session_start();
         $row=mysqli_fetch_array($result,MYSQLI_BOTH);
 
+        $_SESSION['loggedin'] = TRUE;
         $_SESSION["username"]=$user;
         $_SESSION["role"] =  $row['RoliEmer'];
 
@@ -40,6 +42,7 @@ include("connection.php");
           header("location:form.html");
 
        }
+
     }
 
 

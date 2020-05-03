@@ -1,3 +1,18 @@
 <?php
-echo"Pershendetje mesues";
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: form.html');
+    exit;
+}
+else {
+    echo "<html>
+<head>
+    <title>Mesues </title>
+</head>
+<body>
+<h3>Pershendetje mesues</h3>
+<a href =\"LogOut.php\">LogOut</a>
+</body>
+</html>";
+}
 ?>

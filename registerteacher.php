@@ -44,7 +44,7 @@ function get_username()
         <form  role="form" action="submitteacher.php" method='post'>
        
         
-        <legend class="text-center">Register Student</legend>
+        <legend class="text-center">Register Teacher</legend>
             <hr class="mb-3">
             <fieldset>
             <div class="row">

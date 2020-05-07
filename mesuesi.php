@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html>
    
+    
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        
     <style>
         body{margin:0;}
         .icon-bar{
@@ -78,12 +80,13 @@
   .icon-bar input[type=text] {
     border: 1000px solid #ccc;  
   }
-
+  
   }
+  
         </style>
         <body>
             <div class="icon-bar">
-                <a class="active" href="#"><i class="fa fa-home"></i></a>
+                <a class="active" href="homepage.php"><i class="fa fa-home" ></i></a>
                 <a href="#"><input type="text" placeholder="Teacher's name"></a> 
                 <div class="search-container">
                     <form action="/action_page.php">
@@ -95,7 +98,9 @@
                 
             </div>
             <center style="font-size:65px">Welcome to teacher's page!</center>
+            
             <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 #lista a {
   position:absolute;
@@ -152,6 +157,7 @@
   <a href="#" id="notify">Notify</a>
   <a href="#" id="events">Events</a>
 </div>
+
 
 
             

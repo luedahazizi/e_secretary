@@ -20,7 +20,6 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
             $_SESSION['loggedin'] = TRUE;
             $_SESSION["username"]=$user;
             $_SESSION["role"] =  $row['RoliEmer'];
-
             if($row['RoliEmer']=="admin"){
                 header("Location:admin.php");
             } else  if($row['RoliEmer']=="mesues"){
@@ -43,4 +42,5 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
     }
 } else{
     exit('Ju lutem plotesoni fushat ne forme!');
+
 }

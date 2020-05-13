@@ -9,6 +9,7 @@
    padding-top: 3px;
    font-size: 20px;
 }
+
 .logo {
    padding-top: 3px;
    font-size: 20px;
@@ -75,3 +76,18 @@ li a, .dropbtn {
    margin-left: 25%;
    
  }
+ a.button {
+  background-color:  rgb(37, 87, 95);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+ 
+}
+.button {
+  margin-left: 92%;
+  
+  margin-top: 10px;
+
+}

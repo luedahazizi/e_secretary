@@ -34,8 +34,8 @@ function check_user_name($new_name,$user_name)
     $status       = $_POST['status'];
     $profesioni    = $_POST['profesioni'];
 
-    $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'esecretary', '$_POST[email]', '$_POST[telefon]')";
+    $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'esecretary', '$_POST[email]', '$_POST[telefon]',3)";
  $sql2 = "INSERT INTO prindi (arsimi,status,profesioni,PrindID)
  VALUES (  '$_POST[arsimi]', '$_POST[status]', '$_POST[profesioni]',last_insert_id())";
 

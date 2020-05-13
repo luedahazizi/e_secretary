@@ -36,8 +36,8 @@ function check_user_name($new_name,$user_name)
     $foto        = $_POST['foto'];
     
 
-    $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '1234', '$_POST[email]', '$_POST[telefon]')";
+    $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '1234', '$_POST[email]', '$_POST[telefon]',4)";
  $sql2 = "INSERT INTO mesues (datelindje,foto,MesuesID)
  VALUES (  '$_POST[datelindje]', '$_POST[foto]',last_insert_id())";
 //check if the user exist

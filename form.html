@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet'>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<title>Login</title>
+		<script>
+			function showPass(){
+				var x = document.getElementById("password");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+			}
+			$(document).ready(function () {
+
+
+				$('#submit-btn').click(function(e) {
+					var form = $('#login-form');
+
+					e.preventDefault();
+					var username = $("#username").val();
+					var password = $("#password").val();
+
+					$.ajax({
+
+						type: 'POST',
+						url: 'login.php',
+						data: {
+							username: username,
+							password: password
+						},
+						success: function(data) {
+
+							if(data == 1) {
+								form.submit();
+							} else {
+
+								$("#mesazh").append(data);
+								$("#mesazh").show();
+							}
+						}
+					});
+				});
+
+			});
+
+		</script>
+
+		<style>
+			body{
+				background-image: url("https://images-na.ssl-images-amazon.com/images/I/91Nnz3MgtPL._AC_SY450_.jpg");
+				background-repeat: no-repeat;
+				background-size: 100%;
+
+			}
+			.container{
+				background:whitesmoke;
+				width:400px;
+				height:500px;
+				position: absolute;
+				left:500px;
+				border-color: navy;
+				border-width: 5px;
+				border-style:double;
+			}
+			form{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 260px;
+			}
+			h2{
+				color:navy;
+				text-align: center;
+				font-size: 50px;
+				font-family: 'Candal';
+
+			}
+			img{
+				width: 30px;
+				height: 30px;
+				cursor:pointer;
+			}
+			input[type=text]{
+				border: none;
+				border-bottom: 2px solid black;
+				width: 200px;
+				height: 40px;
+				font-size: 20;
+			}
+			input[type=password]{
+				border: none;
+				border-bottom: 2px solid black;
+				width:200px;
+				height:40px;
+				font-size:16;
+			}
+			#submit-btn{
+				margin:80px;
+				margin-top:10px;
+				border-radius: 10px;
+				background-color:Navy ;
+				color:whitesmoke;
+				border: none;
+				cursor: pointer;
+				font-size: 22px;
+				text-align:center;
+				padding:10px 20px;
+			}
+			#error_notif{
+				text-align: center;
+			}
+			#imazh-show-Pass{
+				margin-bottom: -10px;
+				margin-left: -8px;
+			}
+
+
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<h2 id="login"><b>Login</b></h2>
+
+			<div class="logininput">
+				<form action="login.php" method="POST" id="login-form">
+					<input type="hidden" name="submitBtn" value="1">
+					<div id="user">
+						<img src="https://image.flaticon.com/icons/png/512/17/17004.png"  >
+						<input type="text" id="username" name="username" placeholder="Username/Email" required/>
+					</div>
+					<br>
+					<div id="pass">
+						<img src="https://library.kissclipart.com/20181208/vve/kissclipart-lock-black-and-white-clipart-lock-clip-art-a3834c730a08ca50.jpg">
+						<input type="Password" id="password" name="password" placeholder="Password" required />
+						<img id="imazh-show-Pass" src="https://f0.pngfuel.com/png/215/153/symbol-black-logo-eye-eye-illustration-png-clip-art.png" onmouseover="showPass()">
+					</div>
+					<br>
+					<button id="submit-btn">Login</button>
+
+				</form>
+				<p id="mesazh"></p>
+			</div>
+		</div>
+	</body>
+</html>

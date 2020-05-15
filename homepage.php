@@ -28,7 +28,7 @@ session_start();
 
                                               ?></p>
       </div>
-      <p><i class="fas fa-user-shield"></i> Admin name</p>
+      
     </div>
     <div class="menu">
       <ul>
@@ -45,9 +45,9 @@ session_start();
         <li><a href="subject.php"><i class="fas fa-address-book"></i> Subjects</a></li>
         <li><a href="#about"><i class="fas fa-address-book"></i> Attendance</a></li>
         <li><a href="#about"><i class="fas fa-marker"> </i> Marks</a></li>
-        <li><a href="#about"><i class="fas fa-envelope-open-text"> </i> Notify</a></li>
-        <li><a href="#about"><i class="fas fa-calendar-check"></i> Events</a></li>
-        <li><a href="#about"><i class="fas fa-business-time"></i> Timetable</a></li>
+        <li><a href="notify.php"><i class="fas fa-envelope-open-text"> </i> Notify</a></li>
+      
+        <li><a href="timetable.php"><i class="fas fa-business-time"></i> Timetable</a></li>
 
       </ul>
 

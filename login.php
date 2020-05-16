@@ -4,11 +4,15 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    $role = "select  RoliEmer 
+    $role = "select r. RoliEmer ,u.emer,u.mbiemer ,u.email  
     from user u join roli r on u.RolID=r.RoliID 
     where ( username='$user' or email='$user') and password='$pass'";
 
+
+
     $result = mysqli_query($connect, $role);
+
+
 
     if(mysqli_num_rows($result)==1){
 
@@ -16,7 +20,9 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
         $row = mysqli_fetch_array($result,MYSQLI_BOTH);
 
         if (isset($_POST['submitBtn'])) {
-
+            $_SESSION['email']=$row['email'];
+            $_SESSION['emer']=$row['emer'];
+            $_SESSION['mbiemer']=$row['mbiemer'];
             $_SESSION['loggedin'] = TRUE;
             $_SESSION["username"]=$user;
             $_SESSION["role"] =  $row['RoliEmer'];
@@ -27,7 +33,21 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
             } else if($row['RoliEmer']=="nxenes"){
                 header("location:nxenes.php");
             } else if($row['RoliEmer']=="prind"){
-                header("location:prind.php");
+                $emerPrindi = $_SESSION['emer'];
+                $mbiemerPrindi = $_SESSION['mbiemer'];
+
+                $gjejFemijeQuery = "SELECT nx. * from user nx 
+  INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
+  INNER JOIN user p ON p.userID = nxenes.PrindID
+  WHERE p.Emer ='$emerPrindi' and p.Mbiemer = '$mbiemerPrindi' ";
+
+                $resultf = mysqli_query($connect, $gjejFemijeQuery);
+                if (mysqli_num_rows($resultf)==1) {
+                    header("location:prind.php");
+                }
+                else
+                    header("location:femije.php");
+                
             } else {
                 header("location:form.html");
             }
@@ -37,10 +57,10 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
 
     } else{
         echo "<div id='error_notif'>
-        <strong> Kredenciale te gabuara </strong>
+        <strong> Wrong credentials </strong>
         </div>";
     }
 } else{
-    exit('Ju lutem plotesoni fushat ne forme!');
+    exit('Please fill the login form!');
 
 }

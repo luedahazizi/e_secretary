@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paypal Integration Test</title>
+</head>
+<body>
+<div id="payment-box">
+
+    <h4 class="txt-title">School fee</h4>
+    <div class="txt-price">800</div>
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+          method="post" target="_top">
+        <input type='hidden' name='business'  value='PayPal Business Email'>
+        <input type='hidden' name='item_name' value='School fee'>
+        <input type='hidden' name='item_number' >
+        <input type='hidden' name='amount'>
+        <input type='hidden' name='no_shipping' >
+        <input type='hidden' name='currency_code' value='EURO'>
+        <input type='hidden' name='notify_url' value='http://sitename/paypal-payment-gateway-integration-in-php/notify.php'>
+        <input type='hidden' name='cancel_return'
+               value='http://sitename/paypal-payment-gateway-integration-in-php/cancel.php'>
+        <input type='hidden' name='return'
+               value='http://sitename/paypal-payment-gateway-integration-in-php/return.php'>
+        <input type="hidden" name="cmd" value="_xclick"> <input
+            type="submit" name="pay_now" id="pay_now"
+            Value="Pay Now">
+    </form>
+</div>
+</body>
+</html>

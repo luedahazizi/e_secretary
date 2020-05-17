@@ -1,5 +1,6 @@
 
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -56,7 +57,7 @@
         </table>
         <style>
             body {
-                background-image: url("login1.png");
+                background-image: ;
                 background-repeat: no-repeat;
                 background-size: 130%;
                 background-position: center;

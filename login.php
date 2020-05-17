@@ -4,7 +4,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    $role = "select r. RoliEmer ,u.emer,u.mbiemer ,u.email  
+    $role = "select r. RoliEmer ,u.emer,u.mbiemer ,u.email  ,u.telefon
     from user u join roli r on u.RolID=r.RoliID 
     where ( username='$user' or email='$user') and password='$pass'";
 
@@ -20,6 +20,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
         $row = mysqli_fetch_array($result,MYSQLI_BOTH);
 
         if (isset($_POST['submitBtn'])) {
+            $_SESSION['telefon']=$row['telefon'];
             $_SESSION['email']=$row['email'];
             $_SESSION['emer']=$row['emer'];
             $_SESSION['mbiemer']=$row['mbiemer'];
@@ -42,8 +43,11 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
   WHERE p.Emer ='$emerPrindi' and p.Mbiemer = '$mbiemerPrindi' ";
 
                 $resultf = mysqli_query($connect, $gjejFemijeQuery);
+                $femije = mysqli_fetch_array($resultf,MYSQLI_BOTH);
+                $_SESSION['emerFemije']=$femije['emer'];
                 if (mysqli_num_rows($resultf)==1) {
                     header("location:prind.php");
+
                 }
                 else
                     header("location:femije.php");

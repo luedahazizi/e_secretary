@@ -76,19 +76,20 @@ else {
     
     <a href=\"attendance.php\" id=\"attendance\">Attendance</a> <br>
     <a href=\"marks.php\" id=\"marks\">Marks</a><br>
-    <a href=\"Subjects.php\" id=\"subjects\">Subjects</a><br>
+    <a href=\"subjects.php\" id=\"subjects\">Subjects</a><br>
     <a href=\"Notificatons.php\" id=\"notifications\">Notifications</a><br>
     <a href=\"pagesa.html\" id=\"payment\">Payment</a><br>
     <div class='dropdown-content'>
     <a href=\"settings.php\" id=\"settings\">Settings</a>
-    <a href=\"Data.php\">Personal Data</a>
+    <a href=\"personaldata.php\">Personal Data</a>
       <a href=\"changepass.php\">Change Password</a>
       <a href=\"LogOut.php\">logout</a>
+     
     </div>
 </div>
-
 </body>
 </html>
 ";
 }
+
 ?>

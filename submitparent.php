@@ -1,5 +1,7 @@
 <?php
 require_once('config.php'); 
+
+
 ?>
 <?php
 
@@ -35,7 +37,7 @@ function check_user_name($new_name,$user_name)
     $profesioni    = $_POST['profesioni'];
 
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', 'esecretary', '$_POST[email]', '$_POST[telefon]',3)";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]',4)";
  $sql2 = "INSERT INTO prindi (arsimi,status,profesioni,PrindID)
  VALUES (  '$_POST[arsimi]', '$_POST[status]', '$_POST[profesioni]',last_insert_id())";
 
@@ -61,9 +63,9 @@ echo "New record created successfully";
 //echo "Error: " . $sql1 . "<br>" . $conn->error;
 }
 if ($conn->query($sql2) === TRUE  ) {
-    echo "New record created successfully";
+  //  echo "New record created successfully";
     } else  {
-    echo "Error ";
+//echo "Error ";
     }
 
 $conn->close();

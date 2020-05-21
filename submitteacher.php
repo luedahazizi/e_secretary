@@ -31,13 +31,14 @@ function check_user_name($new_name,$user_name)
     $username    = $_POST['username_val'];
     
     $email       = $_POST['email'];
+  
     $telefon     = $_POST['telefon'];
     $datelindje  = $_POST['datelindje'];
     $foto        = $_POST['foto'];
     
 
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '1234', '$_POST[email]', '$_POST[telefon]',4)";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]',2)";
  $sql2 = "INSERT INTO mesues (datelindje,foto,MesuesID)
  VALUES (  '$_POST[datelindje]', '$_POST[foto]',last_insert_id())";
 //check if the user exist
@@ -60,12 +61,12 @@ echo "Succes";
 if ($conn->query($sql1) === TRUE ) {
 echo "New record created successfully";
 } else {
-echo "Error";
+//echo "Error";
 }
 if ($conn->query($sql2) === TRUE  ) {
-    echo "New record created successfully";
+    echo "New teacher added successfully";
     } else  {
-    echo "Error";
+    //echo "Error";
     }
 
 $conn->close();

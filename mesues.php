@@ -23,7 +23,7 @@
     }
     .icon-bar a:hover {
         background-color: #566F5A;
-        padding:
+    
     }
     .active{
         background-color: #476F5A;

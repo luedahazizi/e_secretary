@@ -25,21 +25,29 @@ function check_user_name($new_name,$user_name)
   echo $new_name;
  }
 }
- if(isset($_POST)){
+if(isset($_POST)){
     $emer        = $_POST['emer'];
     $mbiemer     = $_POST['mbiemer'];
     $username    = $_POST['username_val'];
     //$password    = 'student';
     $email       = $_POST['email'];
+    $prind       = $_POST['prind'];
+
     $telefon     = $_POST['telefon'];
     $datelindje  = $_POST['datelindje'];
     $viti        = $_POST['viti'];
     $paraleli    = $_POST['paraleli'];
+    $id = "SELECT  userID 
+    FROM user join prindi on userID=PrindID
+    WHERE Emer='$prind'";
+             $resultf = mysqli_query($conn, $id);
+             $row = mysqli_fetch_array($resultf);
+
    
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]',2)";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]',3)";
  $sql2 = "INSERT INTO nxenes (datelindje,viti,paraleli,NxenesID,PrindID)
- VALUES (  '$_POST[datelindje]', '$_POST[viti]', '$_POST[paraleli]',last_insert_id(),last_insert_id())";
+ VALUES (  '$_POST[datelindje]', '$_POST[viti]', '$_POST[paraleli]',last_insert_id(),'$row[userID]' )";
  
  
  //check if the user exist
@@ -69,7 +77,7 @@ if ($conn->query($sql2) === TRUE  ) {
     
     echo "New record created successfully";
     } else  {
-    echo "Error " ;
+    echo ("Error description: " . mysqli_error($conn)); ;
     }
 
 $conn->close();
@@ -77,4 +85,5 @@ $conn->close();
 }else{
     echo 'No data';
 }
+
 ?>

@@ -1,12 +1,33 @@
+body {    
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .container {
+    width: 80%;
+    padding: 0;
+  }
+  
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .container, .container {
+    width: 100%;
+  }
+}
 .topbar {
   background-color: rgb(37, 87, 95) ;
   height: 65px;
+  
 }
 
 
 .admin{
-   margin-left: 90%;
-   padding-top: 3px;
+  
+  
    font-size: 20px;
 }
 
@@ -17,7 +38,7 @@
 }
 
 ul , .menu {
-    background-color: rgb(231, 247, 247);
+    background-color: #e3f3f3;
     width: 20%;
    height: 100%;
    position: fixed;
@@ -37,9 +58,30 @@ li a, .dropbtn {
    font-size: 0.7cm;
  }
  
- li a:hover, .dropdown:hover .dropbtn {
+ li a:hover,li a:focus .dropdown:hover .dropbtn {
    background-color: rgb(53, 112, 115);
+   padding-right: 110px;
+
  }
+ 
+ 
+
+ 
+
+ #search{
+  left: 300px;
+   position:relative;
+ top:-40px;
+   background-color: white;
+   border-radius: 10px;
+}
+#parentname{
+  left: 1200px;
+  position:relative;
+  top: -85px;
+  font-size: 20px;
+  color:darkgray ;
+}
  
  li.dropdown {
    display: inline-block;
@@ -73,21 +115,28 @@ li a, .dropbtn {
  }
  .icons {
   
-   margin-left: 25%;
+   margin-left: 45%;
    
  }
  a.button {
-  background-color:  rgb(37, 87, 95);
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
+  background-color:  rgb(156, 182, 187);
+  color: rgb(20, 18, 18);
+  padding: 5px 100px;
   text-decoration: none;
   display: inline-block;
  
 }
 .button {
-  margin-left: 92%;
+  
   
   margin-top: 10px;
+
+}
+#esecretary{
+ 
+  top: -95px;
+  font-size: 20px;
+  color:rgb(203, 199, 199) ;
+  
 
 }

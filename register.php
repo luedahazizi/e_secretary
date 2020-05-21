@@ -1,5 +1,33 @@
 <?php
-require_once('config.php'); 
+require_once('config.php');
+include('editstudent.php');
+if (isset($_GET['edit'])) {
+    
+    
+    $userID = $_GET['edit'];
+    
+    $edit_state = true;
+    $rec = mysqli_query($conn, "select * FROM  user u join nxenes n on u.userID=n.nxenesID where u.userID=$userID");
+    $record = mysqli_fetch_array($rec);
+    
+    $id = $record['userID'];
+    $emri = $record['Emer'];
+    $mbiemer = $record['Mbiemer'];
+    $username = $record['Username'];
+    $email = $record['Email'];
+    $telefon = $record['Telefon'];
+    $datelindje = $record['Datelindje'];
+    $viti = $record['Viti'];
+    $paraleli = $record['Paraleli'];
+    $lendaID = $record['userID'];
+
+    echo("Error description: " . mysqli_error($conn));
+}
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 
@@ -10,9 +38,10 @@ require_once('config.php');
     <title>Registration</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <script src="jquery-3.3.1.min.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="student.php">
 <script type="text/javascript">
+
 function get_username()
 {
  var name=$("#emer").val();
@@ -35,63 +64,75 @@ function get_username()
  }
 }
 </script>
+<style>
+    
+</style>
 </head>
 <body>
-    
+
     <div>
     <div class="container">
         <div class="row">
-        <div class="col-md-9 col-md-offset-2">
-        <form  role="form" action="submit.php" method='post'>
+        <div class="col-md-9 col-md-offset-2  m-auto">
+        <form  role="form" action="student.php" method='post'>
        
-        
+        <a href="student.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
         <legend class="text-center">Register Student</legend>
             <hr class="mb-3">
             <fieldset>
             <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 ">
+            <input type="hidden" name="userID" value="<?php echo $id; ?>">
             <label for="emer"><b>Emer</b></label>
-            <input class="form-control  input-sm" type="text" id="emer" name="emer" required>
+            <input class="form-control  input-sm" type="text" id="emer" name="emer" value="<?php echo $emri; ?>" required>
             </div>
             <div class="form-group col-md-6">
             <label for="mbiemer"><b>Mbiemer</b></label>
-            <input class="form-control input-sm" type="text"  id="mbiemer" name="mbiemer" required>
+            <input class="form-control input-sm" type="text"  id="mbiemer" name="mbiemer"  value="<?php echo $mbiemer; ?>"required>
             </div>
             </div>
             <div class="row">
             <div class="form-group col-md-6">
             <label for="username"><b>Username</b></label>
-            <input class="form-control" type="text"  id="username_val" name="username_val" onblur="get_username();" required>
+            <input class="form-control" type="text"  id="username_val" name="username_val" onblur="get_username();" value="<?php echo $username; ?>" required>
             </div>
             <div class="form-group col-md-6">
             <label for="telefon"><b>Telefon</b></label>
-            <input class="form-control" type="text"  id="telefon" name="telefon" required>
+            <input class="form-control" type="text"  id="telefon" name="telefon" value="<?php echo $telefon; ?>" required>
 </div>
 </div>
 <div class="row">
-<div class="form-group col-md-12">
+<div class="form-group col-md-6">
             <label for="email"><b>Email</b></label>
-            <input class="form-control" type="email"  id="email" name="email" required>
+            <input class="form-control" type="email"  id="email" name="email"value="<?php echo $email; ?>" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label for="prindi"><b>Prindi</b></label>
+            <input class="form-control" type="text"  id="prind" name="prind"  required>
             </div>
 </div>
 <div class="row">
 <div class="form-group col-md-12">
             <label for="datelindje"><b>Datelindje</b></label>
-            <input class="form-control" type="date"  id="datelindje" name="datelindje" required>
+            <input class="form-control" type="date"  id="datelindje" name="datelindje" value="<?php echo $datelindje; ?>" required>
             <div class="row">
             </div>
             <div class="row">
             <div class="form-group col-md-6">
             <label for="viti"><b>Viti</b></label>
-            <input class="form-control" type="text"  id="viti" name="viti" required>
+            <input class="form-control" type="text"  id="viti" name="viti" value="<?php echo $viti; ?>" required>
             </div>
             <div class="form-group col-md-6">
             <label for="paraleli"><b>Paraleli</b></label>
-            <input class="form-control" type="text"  id="paraleli" name="paraleli" required>
+            <input class="form-control" type="text"  id="paraleli" name="paraleli"  value="<?php echo $paraleli; ?>" required>
             </div>
             </div>
             <hr class="mb-3">
+            <?php if ($edit_state == false): ?>
         <input class="btn btn-secondary btn-lg btn-block" type="submit" name="register" id="register" value="Register"  >
+        <?php else : ?>
+                <button type="submit" name="update" class="btn btn-secondary btn-lg btn-block">Update</button>
+            <?php endif ?>
             </fieldset>
            
 
@@ -114,6 +155,7 @@ $(function(){
            var username_val = $('#username_val').val();
            var telefon = $('#telefon').val();
            var email = $('#email').val();
+           var prind = $('#prind').val();
            var datelindje = $('#datelindje').val();
            var viti = $('#viti').val();
            var paraleli = $('#paraleli').val();
@@ -121,7 +163,7 @@ $(function(){
            $.ajax({
                type: 'POST',
                url:'submit.php',
-               data:{emer: emer,mbiemer: mbiemer,username_val: username_val,telefon: telefon,email:email,datelindje:datelindje,paraleli: paraleli,viti:viti},
+               data:{emer: emer,mbiemer: mbiemer,username_val: username_val,telefon: telefon,email:email,prind:prind,datelindje:datelindje,paraleli: paraleli,viti:viti},
   success: function(data){
     Swal.fire(
         'e-secretary',

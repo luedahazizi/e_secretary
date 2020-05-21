@@ -1,5 +1,26 @@
 <?php
 require_once('config.php'); 
+include('editteacher.php');
+if (isset($_GET['edit'])) {
+    
+    
+    $userID = $_GET['edit'];
+    
+    $edit_state = true;
+    $rec = mysqli_query($conn, "select * FROM  user u join mesues m on u.userID=m.mesuesID where u.userID=$userID");
+    $record = mysqli_fetch_array($rec);
+    
+    $id = $record['userID'];
+    $emri = $record['Emer'];
+    $mbiemer = $record['Mbiemer'];
+    $username = $record['Username'];
+    $email = $record['Email'];
+    $telefon = $record['Telefon'];
+    $datelindje = $record['Datelindje'];
+   
+
+    echo("Error description: " . mysqli_error($conn));
+}
 ?>
 <!DOCTYPE html>
 
@@ -8,6 +29,7 @@ require_once('config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+   
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <script src="jquery-3.3.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -36,48 +58,53 @@ function get_username()
 </script>
 </head>
 <body>
+
+  
     
     <div>
     <div class="container">
+        
         <div class="row">
         <div class="col-md-9 col-md-offset-2">
-        <form  role="form" action="submitteacher.php" method='post'>
+        <form  role="form" action="teacher.php" method='post'>
        
-        
+        <a href="teacher.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
         <legend class="text-center">Register Teacher</legend>
             <hr class="mb-3">
             <fieldset>
             <div class="row">
             <div class="form-group col-md-6">
+            <input type="hidden" name="userID" value="<?php echo $id; ?>">
             <label for="emer"><b>Emer</b></label>
-            <input class="form-control  input-sm" type="text" id="emer" name="emer" required>
+            <input class="form-control  input-sm" type="text" id="emer" name="emer" value="<?php echo $emri; ?>" required>
             </div>
             <div class="form-group col-md-6">
             <label for="mbiemer"><b>Mbiemer</b></label>
-            <input class="form-control input-sm" type="text"  id="mbiemer" name="mbiemer" required>
+            <input class="form-control input-sm" type="text"  id="mbiemer" name="mbiemer" value="<?php echo $mbiemer; ?>" required>
             </div>
             </div>
             <div class="row">
             <div class="form-group col-md-6">
             <label for="username"><b>Username</b></label>
-            <input class="form-control" type="text"  id="username_val" name="username_val" onblur="get_username();" required>
+            <input class="form-control" type="text"  id="username_val" name="username_val" onblur="get_username();" value="<?php echo $username; ?>" required>
             </div>
             <div class="form-group col-md-6">
             <label for="telefon"><b>Telefon</b></label>
-            <input class="form-control" type="text"  id="telefon" name="telefon" required>
+            <input class="form-control" type="text"  id="telefon" name="telefon" value="<?php echo $telefon; ?>" required>
 </div>
 </div>
 <div class="row">
 <div class="form-group col-md-12">
             <label for="email"><b>Email</b></label>
-            <input class="form-control" type="email"  id="email" name="email" required>
+            <input class="form-control" type="email"  id="email" name="email" value="<?php echo $email; ?>" required>
             </div>
+            
             
 </div>
 <div class="row">
 <div class="form-group col-md-12">
             <label for="datelindje"><b>Datelindje</b></label>
-            <input class="form-control" type="date"  id="datelindje" name="datelindje" required>
+            <input class="form-control" type="date"  id="datelindje" name="datelindje" value="<?php echo $datelindje ?>" required>
             <div class="row">
             </div>
             <div class="row">
@@ -88,7 +115,11 @@ function get_username()
             </div>
             
             <hr class="mb-3">
+            <?php if ($edit_state == false): ?>
         <input class="btn btn-secondary btn-lg btn-block" type="submit" name="register" id="register" value="Register">
+        <?php else : ?>
+                <button type="submit" name="update" class="btn btn-secondary btn-lg btn-block">Update</button>
+            <?php endif ?>
             </fieldset>
            
 
@@ -110,6 +141,7 @@ $(function(){
            var username_val = $('#username_val').val();
            var telefon = $('#telefon').val();
            var email = $('#email').val();
+           var lenda = $('#lenda').val();
            var datelindje = $('#datelindje').val();
            var foto = $('#foto').val();
 
@@ -117,7 +149,7 @@ $(function(){
            $.ajax({
                type: 'POST',
                url:'submitteacher.php',
-               data:{emer: emer,mbiemer: mbiemer,username_val: username_val,telefon: telefon,email:email,datelindje:datelindje ,foto:foto},
+               data:{emer: emer,mbiemer: mbiemer,username_val: username_val,telefon: telefon,email:email,lenda:lenda,datelindje:datelindje ,foto:foto},
   success: function(data){
     Swal.fire(
         'e-secretary',

@@ -47,31 +47,72 @@ include("config.php");
             
             </tr>
             
+            
             <?php
             if(isset($_POST['viti']) && isset($_POST['paraleli'])){
                 $viti=$_POST['viti'];
                 $paraleli=$_POST['paraleli'];
            
-                $orari="Select Emri ,Mesues,ora,dita from lenda l join orari o on l.LendaID=o.LendaID where  o.viti=$viti and o.paraleli='$paraleli'";
+                $orari="Select Emri ,ora,dita from lenda l join orari o on l.LendaID=o.LendaID where  o.viti=$viti and o.paraleli='$paraleli'";
                 $res=$conn->query($orari);
                 if($res->num_rows>0){
                    
+                   
                     while($r=$res->fetch_assoc()){
                         if (isset($_POST['kerko'])) {
-                            if($r['dita']='Monday'){
-                        echo "<tr>
-                        <td>{$r['ora']}</td>
-                     
-                        <td class='mat'>{$r['Emri']}/<br>{$r['Mesues']}</td>
-                        
-                       
-
-                   
-                       
-                    </tr>"
+                           
+                                echo"<tr> ";
+                                if(($r['dita']=='Monday') && ($r['ora']==8) ){
+                                    echo"
+                               
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
+                            if(($r['dita']=='Monday') && ($r['ora']=="9:00") ){
+                                echo"<tr> 
+                               
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
+                            if(($r['dita']=='Monday') && ($r['ora']=="10:00") ){
+                                echo"<tr> 
+                              
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
+                            if(($r['dita']=='Monday') && ($r['ora']=="11:00") ){
+                                echo"<tr> 
+                              
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
+                            if(($r['dita']=='Monday') && ($r['ora']=="12:00") ){
+                                echo"<tr> 
+                               
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
+                            if(($r['dita']=='Monday') && ($r['ora']=="01:00") ){
+                                echo"<tr> 
+                                
+                                <td class='mat'>".$r['Emri']."</td>";
+                            }
                             
+                            if(($r['dita']=='Tuesday') && ($r['ora']==8)){
+                            echo "
+
+                            <td class='mat'>" .$r['Emri'] . "</td>";
+                           
+                       
+                        }
+                        if($r['dita']=='Wednesday'){
+                            echo "
+
+                            <td class='mat'>". $r['Emri'] . "</td>";}"</tr>";
+                       
+                       
+                       
+                   
+                  
                     
-               ;}
+                            
+                           
+             
                     }
                 }
                 }

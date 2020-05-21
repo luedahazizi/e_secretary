@@ -7,12 +7,12 @@ if (isset($_GET['edit'])) {
     $lendaID = $_GET['edit'];
     $edit_state = true;
     
-    $rec = mysqli_query($conn, "SELECT * FROM lenda WHERE LendaID=$lendaID");
+    $rec = mysqli_query($conn, "SELECT Emer, Emri,Viti,LendaID FROM lenda join user on MesuesID=UserID  WHERE LendaID=$lendaID");
     $record = mysqli_fetch_array($rec);
     
     $lenda = $record['Emri'];
     $viti = $record['Viti'];
-    $mesues = $record['Mesues'];
+    $mesues = $record['Emer'];
     $lendaID = $record['LendaID'];
     
 }
@@ -44,14 +44,19 @@ if (isset($_GET['edit'])) {
                 $lenda = $_POST['lenda'];
                 $viti = $_POST['viti'];
                 $mesues=$_POST['mesues'];
-
-                     
-                $subject="INSERT INTO lenda (emri,viti,Mesues) values ('$lenda','$viti','$mesues')";
+              $mesuesid = "SELECT  userID 
+                FROM user join mesues on userID=MesuesID
+                WHERE Emer='$mesues'";
+                 $resultm = mysqli_query($conn, $mesuesid);
+                 if($resultm->num_rows>0){
+                 $row1 = mysqli_fetch_array($resultm);
+                $subject="INSERT INTO lenda (emri,viti,MesuesID) values ('$lenda','$viti','$row1[userID]')";
      if($conn ->query($subject)){
          echo "<div class='success'>Insert success</div>";
      }
+    }
     else {
-        echo("Error description: " . mysqli_error($conn));
+        echo "<div class='error'>Teacher don't exist</div>";
      }
     
       } 
@@ -64,7 +69,7 @@ if (isset($_GET['edit'])) {
                 <label>Year</label><br>
                 <input type="text" name="viti"  id="viti" required class="input" value="<?php echo $viti; ?>"><br>
                 <label>Teacher Name</label><br>
-                <input type="text" name="mesues" id="mesues" value="<?php echo $mesues; ?>" required class="input"><br>
+                <input type="text" name="mesues" id="mesues" value="<?php echo $mesues; ?>" class="input"><br>
                 <?php if ($edit_state == false): ?>
                 <button type="submit" name="add" class="btn">Save Subject </button>
             <?php else : ?>
@@ -94,7 +99,7 @@ if (isset($_GET['edit'])) {
                     <th colspan="2">Action</th>
                 </tr>
                 <?php
-                $lendet="select * FROM  lenda";
+                $lendet="select Emer,Emri,Viti,LendaID FROM  lenda l join user u on l.MesuesID=u.userID";
                 $res=$conn->query($lendet);
                 if($res->num_rows>0){
                     $i=0;
@@ -104,7 +109,7 @@ if (isset($_GET['edit'])) {
                         <td>{$i}</td>
                         <td>{$r["Emri"]}</td>
                         <td>{$r["Viti"]}</td>
-                        <td>{$r["Mesues"]}</td>
+                        <td>{$r['Emer']}</td>
                         
                         <td><a href='subdelete.php?id={$r["LendaID"]}' class='btn_delete'>Delete</td>
                         <td><a href='subject.php?edit={$r["LendaID"]}' class='btn_update'>Update</td>

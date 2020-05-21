@@ -19,8 +19,13 @@ if ( isset($_POST['update'])) {
     $viti = mysqli_real_escape_string($conn,$_POST['viti']);
     $mesues = mysqli_real_escape_string($conn,$_POST['mesues']);
     
-
-    $update= "UPDATE lenda SET Emri='$lenda' , Viti='$viti' , Mesues='$mesues' WHERE LendaID = '$lendaID'";
+    $mesuesid = "SELECT  userID 
+    FROM user join mesues on userID=MesuesID
+    WHERE Emer='$mesues'";
+     $resultm = mysqli_query($conn, $mesuesid);
+     $row1 = mysqli_fetch_array($resultm);
+     
+    $update= "UPDATE lenda SET Emri='$lenda' , Viti='$viti' , MesuesID='$row1[userID]' WHERE LendaID = '$lendaID'";
     
     if($conn ->query($update)){
         echo "<script>window.open('subject.php?mes=Data Updated..','_self')</script>";

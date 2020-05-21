@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+    <div class = "main">
+        <div class="logo">
+            <img >
+            <div>
+                <ul>
+                    <li class= "active"><a href="#">Home </a></li>
+                    <li><a href="#">Home </a></li>
+                    <li><a href="#">Home </a></li>
+                </ul>
+            </div>
+            <div class="title">
+                <h4> Get information about classes</h4>
+            </div>
+            <button  class="button" id="myBtn">Shiko Orarin </button>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>ORARI MESIMOR</h2>
+                    </div>
+                    <div class="modal-body">
+                        <table align="center" style="width: 100%" class="table1">
+                            <tr>
+                                <td id="header" colspan="6">
+                                    <h3>Semestri i pare</h3>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Time</th>
+                                <th>Mo</th>
+                                <th>Tu</th>
+                                <th>We</th>
+                                <th>Th</th>
+                                <th>Fr</th>
+
+                            </tr>
+                            <tr>
+                                <td>8:00-9:00</td>
+                                <td>Math</td>
+                                <td>Biology</td>
+                                <td>Physics</td>
+                                <td>Literature</td>
+                                <td>Chemistry</td>
+                            </tr>
+                            <tr>
+                                <td>9:00-10:00</td>
+                                <td>Math</td>
+                                <td>Biology</td>
+                                <td>Physics</td>
+                                <td>Literature</td>
+                                <td>Chemistry</td>
+
+                            </tr><tr>
+                            <td>10:00-11:00</td>
+                            <td>Math</td>
+                            <td>Biology</td>
+                            <td>Physics</td>
+                            <td>Literature</td>
+                            <td>Chemistry</td>
+
+                        </tr><tr>
+                            <td>11:00-12:00</td>
+                            <td>Math</td>
+                            <td>Biology</td>
+                            <td>Physics</td>
+                            <td>Literature</td>
+                            <td>Chemistry</td>
+
+                        </tr>
+                            <tr>
+                            <td>12:00-13:00</td>
+                                <td>Math</td>
+                                <td>Biology</td>
+                                <td>Physics</td>
+                                <td>Literature</td>
+                                <td>Chemistry</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+	
+	
+	<div class="table-box" style="width:500px; padding-top:30px">
+	<table>
+	<tr>
+	<th>Sr. NO.</th>
+	<th>Lenda</th>
+	<th>Notat</th>
+	<th>Mungesat</th>
+	<th>Uploads</th>
+	</tr>
+	<tr>
+	<td>1</td>
+	<td>mat</td>
+	<td>9,8,7,8</td>
+	<td>0</td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>1</td>
+	<td>mat</td>
+	<td>9,8,7,8</td>
+	<td>0</td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>1</td>
+	<td>mat</td>
+	<td>9,8,7,8</td>
+	<td>0</td>
+	<td></td>
+	</tr>
+		<tr>
+	<td>1</td>
+	<td>mat</td>
+	<td>9,8,7,8</td>
+	<td>0</td>
+	<td></td>
+	</tr>
+		<tr>
+	<td>1</td>
+	<td>mat</td>
+	<td>9,8,7,8</td>
+	<td>0</td>
+	<td></td>
+	</tr>
+	</table>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+</header>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

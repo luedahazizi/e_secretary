@@ -1,0 +1,173 @@
+*{
+	margin:0;
+	padding:0;
+	font-family:Century Gothic;
+}
+body{
+	background-image: url('orari.jpg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+ul{
+	padding-top:10px;
+	float:right;
+    list-style-type:none;
+}
+ul li{
+	display:inline-block;
+}
+ul li a{
+	text-decoration:none;
+	color:#fff;
+	padding:5px 20px;
+	border: 1px solid #fff;
+	<!--border: 1px solid transparent;-->
+	transition:0.6s ease;
+}
+ul li a: hover{
+	background-color:#fff;
+	color:#000;
+}
+ul li.active a{
+	background-color: #fff;
+	color:#000;
+}
+
+.logo img{
+	float: left;
+	width: 150px;
+	height:auto;
+}
+.main{
+	max-width:1200px;
+	margin: auto;
+	
+}
+.title{
+	possition: absolute;
+	top:50%;
+	left:50%;
+}
+.title h4{
+	color:#fff;
+	font-size:30px;
+}
+}
+table, th, td{
+border: 1px solid black;
+border-collapse:collapse;
+opacity: 0.95;
+}
+th,td{
+padding: 10px;
+text-align:center;
+}
+th{
+background-color: #a70000;
+color:white;
+}
+
+tr:nth-child(event){
+background-color: #e8e8e8;
+}
+tr:nth-child(odd){
+background-color:white;
+}
+
+#header{
+background-color:#005cb7;
+color:white;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+#myBtn {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+#myBtn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.table-box{
+padding-left:20px;	
+}
+.table-box. table{
+
+	
+}

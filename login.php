@@ -37,20 +37,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
                 $emerPrindi = $_SESSION['emer'];
                 $mbiemerPrindi = $_SESSION['mbiemer'];
 
-                $gjejFemijeQuery = "SELECT nx. * from user nx 
-  INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
-  INNER JOIN user p ON p.userID = nxenes.PrindID
-  WHERE p.Emer ='$emerPrindi' and p.Mbiemer = '$mbiemerPrindi' ";
-
-                $resultf = mysqli_query($connect, $gjejFemijeQuery);
-                $femije = mysqli_fetch_array($resultf,MYSQLI_BOTH);
-                $_SESSION['emerFemije']=$femije['emer'];
-                if (mysqli_num_rows($resultf)==1) {
                     header("location:prind.php");
-
-                }
-                else
-                    header("location:femije.php");
                 
             } else {
                 header("location:form.html");

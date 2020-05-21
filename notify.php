@@ -12,25 +12,31 @@ require_once ('config.php');
        
 </head>
 <body>
-<div class="section">
 <?php
+    include "homepage.php";
+    ?>
+<div class="section">
 
-include "homepage.php";
-?>
     <div class="notify">
         <?php
-        if(isset($_POST['titull']) && isset($_POST['content']) && isset($_POST['attachments']) && isset($_POST['lloji']) &&  isset($_POST['publish'])){
+        
+        if(isset($_POST['titull']) && isset($_POST['content']) && isset($_FILES['attachments']['name']) && isset($_POST['lloji']) &&  isset($_POST['publish'])){
             $titull=$_POST['titull'];
             $content=$_POST['content'];
-            $attachments=$_POST['attachments'];
+            $attachments= rand(1000,10000)."-" .$_FILES['attachments']['name'];
+            $tname= $_FILES['attachments']['tmp_name'];
+            $uploads_dir= 'uploads';
+            move_uploaded_file($tname,$uploads_dir.'/'.$attachments);
             $lloji=$_POST['lloji'];
-            $id = "select  userID 
-    from user 
-    where RolID=1";
-    
+            $id = 'SELECT  userID 
+            FROM user INNER JOIN publikime ON userID=publikuesID
+            WHERE RolID=1';
+             $resultf = mysqli_query($conn, $id);
+             $row = mysqli_fetch_array($resultf);
 
-            $notify="insert into publikime (data,titull,permbajtja,attachments,publikuesid,lloji) values (curdate(),'$titull','$content','$attachments','$id','$lloji')";
+            $notify="insert into publikime (data,titull,permbajtja,attachments,publikuesid,lloji) values (curdate(),'$titull','$content','$attachments', '$row[userID]','$lloji')";
             if($conn ->query($notify)){
+              
                 echo "<div class='success'>Insert success</div>";
             }
            else {
@@ -38,7 +44,8 @@ include "homepage.php";
             }
         }
         ?>
-        <form action="notify.php" method="post">
+        <form enctype="multipart/form-data" action="notify.php" method="post">
+       
             <label >Title</label><br>
             <input type="text" class="input"  name="titull" id="titull" required><br>
             <label >Content</label><br>
@@ -47,7 +54,7 @@ include "homepage.php";
 include "textarea.html";
 ?>
             <label >Attachments</label><br>
-            <input type="text" class="input" name="attachments" id="attachments" required><br>
+            <input type="file" class="input" name="attachments" id="attachments"><br>
             <label>Category</label><br>
             <input  class="input" name="lloji" list="lloji"  >
             <datalist id="lloji">

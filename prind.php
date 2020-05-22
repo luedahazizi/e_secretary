@@ -46,9 +46,10 @@ else {
        }
      
         #hello{
-        padding-left: 570px;
+        padding-left: 550px;
             font-size: 50px;
             width:50%;
+            
        }
         #parentname{
             left: 1200px;
@@ -63,13 +64,13 @@ else {
         left:420px;
         width: 500px;
         height:450px;
-        top: -670px;
+        top: -680px;
         }
         #text{
         position: relative;
         background-color:lightgray;
         width: 50%;
-        left:1010px;
+        left:1015px;
         top: -1275px;
         height:100vh;
         font-size:18px;   
@@ -110,11 +111,7 @@ else {
   padding-left: 8px;
 }
 
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
+
 
     </style>
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
@@ -128,7 +125,7 @@ else {
     echo "</h4>
 </div>
 <div id=\"content\">
-    <h2 id=\"hello\">Hello " ;
+    <h2 id=\"hello\">Welcome " ;
     echo $_SESSION['emer'];
     echo "</h2>
 </div>

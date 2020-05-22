@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-echo"<html>
+    echo"<html>
 <head>
 <title>Notifications</title>
 <style>
@@ -19,6 +19,10 @@ body{
 				position: relative;
 				text-align: center;
 				}
+				#notification{
+				position: relative;
+				left: 600px;
+				}
 </style>
 </head>
 <body><div id='titull'>
@@ -27,18 +31,18 @@ body{
     $query = "SELECT titull,permbajtja,lloji,data,Attachments FROM publikime ";
     $result = mysqli_query($connect, $query);
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div><h4>Date: ";
-        Echo $row['data'];
-    echo"</h4><h3>";
-    echo $row['titull'];
-    echo"</h3><h4>Content:";
-    echo $row['permbajtja'];
-    echo"</h4><script>
-
-</script></div>";
+     $adresa= "C:\\xampp\\htdocs\\e_secretary\\uploads\\".$row["Attachments"];
+        echo "<div id='notification'><h4>Date: ";
+        Echo $row["data"];
+        echo"</h4><h3>";
+        echo $row["titull"];
+        echo"</h3><h4>Content:";
+        echo $row["permbajtja"];
+        echo"</h4>
+        <img src='";echo $adresa;echo"'></div>  ";
 
     }
 
-echo"
+    echo"
 </body></html>";
 }

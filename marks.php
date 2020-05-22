@@ -13,7 +13,6 @@ body{
 				background-image: url(\"https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg\");
 				background-repeat: no-repeat;
 				background-size: 100%;
-
 			}
 			table{
 			border-collapse: collapse;
@@ -69,7 +68,6 @@ function Search(){
   filter = input.value.toUpperCase();
   table = document.getElementById(\"marks\");
   tr = table.getElementsByTagName(\"tr\");
-
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName(\"td\")[0];
@@ -84,15 +82,12 @@ function Search(){
   }
     }
     
-
-
 </script>
 </head>
 <body>
 <div id='titull'><h1>Marks</h1><h4>Here you can find a list of marks linked with the subject name and some more information  </h4></div>
 <input type='text' id='search' onkeyup='Search()' placeholder='Search..'>
 <br/>
-
 ";
     $emerPrindi = $_SESSION['emer'];
     $mbiemerPrindi = $_SESSION['mbiemer'];
@@ -150,7 +145,6 @@ function Search(){
     }
     else{
         echo "<table id='marks'>
-
 <th>Subject</th>
 <th>Mark</th>
 <th>Description</th>
@@ -185,5 +179,3 @@ function Search(){
 
     }
 }
-
-

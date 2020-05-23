@@ -140,6 +140,19 @@ include("config.php");
   border-radius: 5px;
  
 }
+.btn_add{
+  background-color:rgb(121, 174, 182);
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 20px;
+    border: ghostwhite;
+    margin-left: 60%;
+   
+    }
     </style>
 </head>
 
@@ -147,7 +160,7 @@ include("config.php");
     <?php
     include "homepage.php";
     ?>
-     <h1  style="margin-top:10px; margin-left:46%; margin-bottom:4px;font-size:40px;">Timetable</h1><hr>
+     <h1  style="margin-top:10px; margin-left:46%; margin-bottom:4px;font-size:40px;">Timetable  <a  href='addtimetable.php?submit={$r["OrariID"]}' class='btn_add'>Add</a></h1><hr>
     <div class="search">
         <form action="timetable.php" method="post">
             <label for="">Year</label><br>

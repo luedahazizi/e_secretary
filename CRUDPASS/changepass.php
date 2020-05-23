@@ -1,5 +1,15 @@
-<?php session_start(); ?>
+<?php
+include("connection.php");
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: form.html');
+    exit;
+}
+
+
+?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -16,6 +26,7 @@
         $npwd = $_POST['npwd'];
         $cpwd = $_POST['cpwd'];
 
+
         $query = mysqli_query($connect, "SELECT Email,Username,Password FROM user WHERE Email = '$email'   AND Password = '$opwd'");
         $num = mysqli_fetch_array($query);
 
@@ -27,10 +38,10 @@
         }
     }
     ?>
-    <h2> <?php echo  $_SESSION['msg1']; ?><?php $_SESSION['msg1'] = ""; ?></h2>
+    <h2> <?php echo $_SESSION['msg1']; ?><?php $_SESSION['msg1'] = ""; ?> </h2>
     <form name="chngpwd" action="" method="post" onSubmit="return valid();">
         <table align="center">
-            <tr height="60">
+            <tr height=" 60">
                 <td>EMAIL :</td>
                 <td><input type="text" name="useremail" id="useremail"></td>
 

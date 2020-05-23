@@ -33,7 +33,7 @@ if ( isset($_POST['update'])) {
     
     mysqli_query($conn,"UPDATE prindi  SET arsimi='$arsimi' , status='$status' , profesioni='$profesioni' WHERE PrindID = '$id'");
     mysqli_query($conn,"UPDATE user  SET Emer='$emri' , mbiemer='$mbiemer' , username='$username',email='$email',telefon='$telefon' WHERE userID = '$id'");
-    echo("Error description: " . mysqli_error($conn));
+    echo "<script>window.open('parent.php?mes=Data Updated..','_self')</script>";
     
 }
 

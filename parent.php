@@ -11,7 +11,7 @@ include('editparent.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Parent</title>
-    <link rel="stylesheet" href="subjects.css">
+   
     <style>.btn_delete{
   background-color: #e5e778;
     color: white;
@@ -37,7 +37,7 @@ include('editparent.php');
     .tbox table{
     border-collapse:collapse;
     border-color: rgb(121, 174, 182);
-    margin-left: 20%;
+    margin-left: 23%;
     background: rgb(237, 247, 247);
 }
 tr,td,th{
@@ -65,7 +65,38 @@ tr,td,th{
 	text-align:center;
 	margin-bottom:10px;
 }
+.btn_add{
+  background-color:rgb(121, 174, 182);
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 15px;
+    border: ghostwhite;
+    }
 </style>
+<script type="text/javascript">
+function Search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchteacher");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("parent");
+  tr = table.getElementsByTagName('tr');
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName('td')[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
     
 </head>
 <body>
@@ -74,14 +105,15 @@ tr,td,th{
 include "homepage.php";
 ?>
 <div class="tbox">
-            <h3 style="margin-top:30px;"> Student Details</h3><br>
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Parent</h1><hr>
+            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Parent Details<a  href='registerparent.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
             <?php
             if(isset($_GET["mes"]))
             {
                 echo "<div class='error'>{$_GET["mes"]}</div>";
             }
             ?>
-            <table border="3px">
+            <table id=parent border="3px">
                 <tr>
                 <th>Nr.</th>
                     <th>ID</th>
@@ -94,7 +126,7 @@ include "homepage.php";
                     <th>Status</th>
                     <th>Profesion</th>
                     
-                    <th colspan="3">Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 <?php
                 $parent="select * FROM  user u join prindi p on u.userID=p.PrindID";
@@ -118,7 +150,7 @@ include "homepage.php";
                         
                         <td><a href='editparent.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
                         <td><a href='registerparent.php?edit={$r["userID"]}' class='btn_update'>Update</td>
-                        <td><a href='registerparent.php?submit={$r["userID"]}' class='btn_update'>Add</td>
+                      
                         </tr>";
                     }
                 }

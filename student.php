@@ -37,7 +37,7 @@ include('editstudent.php');
     .tbox table{
     border-collapse:collapse;
     border-color: rgb(121, 174, 182);
-    margin-left: 20%;
+    margin-left: 23%;
     background: rgb(237, 247, 247);
 }
 tr,td,th{
@@ -65,8 +65,40 @@ tr,td,th{
 	text-align:center;
 	margin-bottom:10px;
 }
+.btn_add{
+  background-color:rgb(121, 174, 182);
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 15px;
+    border: ghostwhite;
+    }
 </style>
-    
+</style>
+
+<script type="text/javascript">
+function Search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchteacher");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("student");
+  tr = table.getElementsByTagName('tr');
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName('td')[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 </head>
 <body>
 <?php
@@ -74,14 +106,15 @@ tr,td,th{
 include "homepage.php";
 ?>
 <div class="tbox">
-            <h3 style="margin-top:30px;"> Student Details</h3><br>
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Student</h1><hr>
+            <h3  style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Student Details<a  href='register.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
             <?php
             if(isset($_GET["mes"]))
             {
                 echo "<div class='error'>{$_GET["mes"]}</div>";
             }
             ?>
-            <table border="3px">
+            <table id="student" border="3px">
                 <tr>
                 <th>Nr.</th>
                     <th>ID</th>
@@ -94,7 +127,7 @@ include "homepage.php";
                     <th>Year</th>
                     <th>Group</th>
                     
-                    <th colspan="3">Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 <?php
                 $student="select * FROM  user u join nxenes n on u.userID=n.nxenesID";
@@ -118,7 +151,6 @@ include "homepage.php";
                         
                         <td><a href='editstudent.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
                         <td><a href='register.php?edit={$r["userID"]}' class='btn_update'>Update</td>
-                        <td><a href='register.php?submit={$r["userID"]}' class='btn_update'>Add</td>
                         </tr>";
                     }
                 }

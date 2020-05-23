@@ -36,6 +36,7 @@ if (isset($_GET['edit'])) {
 
         include "homepage.php";
         ?>
+        <h1  style="margin-top:10px; margin-left:46%; margin-bottom:4px;font-size:40px;">Subjects</h1><hr>
         <div class="content">
 
             <h3> Add Subject</h3><br>

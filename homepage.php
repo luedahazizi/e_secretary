@@ -23,13 +23,14 @@ else {
 
 <body>
   <div class=\"container\">
-
+  <h4 style=\"margin-top:10px; margin-left:43%; margin-bottom:4px;\" >E_secretary</h4>
     <div class=\"topbar\">
 
 
       <div class=\"admin\">
-      <h4 id=\"esecretary\">E_secretary</h4>
-      <input type=\"text\" placeholder=\"Search..\" id =\"search\">
+     
+     <a href=\"logout.php\" class=\"button\">Logout</a>
+
       <p id=\"parentname\">
         <i class=\"fas fa-user-shield\"></i> ";
 
@@ -52,13 +53,12 @@ else {
           </div>
         </li>
         <li><a href=\"subject.php\"><i class=\"fas fa-address-book\"></i> Subjects</a></li>
-        <li><a href=\"notify.php\"><i class=\"fas fa-envelope-open-text\"> </i> Notify</a></li>
+        <li><a href=\"notification.php\"><i class=\"fas fa-envelope-open-text\"> </i> Notify</a></li>
         
       
         <li><a href=\"timetable.php\"><i class=\"fas fa-business-time\"></i> Timetable</a></li>
-        <li><a href=\"changepass.php\"><i class=\"fas fa-envelope-open-text\"> </i> Settings</a></li>
-        <li> <a href=\"logout.php\" class=\"button\">Logout</a></li>
-
+        <li><a href=\"personalinfo.php\"><i class=\"fas fa-cog\"> </i> Settings</a></li>
+       
       </ul>
 
 
@@ -66,14 +66,11 @@ else {
    
     <div class=\"icons\">
 
-      <h1>";
+    <h1>";
 
-          echo "Welcome    " . $_SESSION['emer'];
+  
 
-        echo " </h1>
-      
-     
-      
+  echo " </h1>
 
 
 

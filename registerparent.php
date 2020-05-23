@@ -21,7 +21,7 @@ if (isset($_GET['edit'])) {
     $status = $record['Status'];
     $profesioni = $record['Profesioni'];
 
-    echo("Error description: " . mysqli_error($conn));
+  
 }
 
 ?>
@@ -64,7 +64,7 @@ function get_username()
     <div>
     <div class="container">
         <div class="row">
-        <div class="col-md-9 col-md-offset-2">
+        <div class="col-md-9 col-md-offset-2  m-auto">
         <form  role="form" action="parent.php" method='post'>
        
         <a href="parent.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>

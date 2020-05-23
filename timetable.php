@@ -147,6 +147,7 @@ include("config.php");
     <?php
     include "homepage.php";
     ?>
+     <h1  style="margin-top:10px; margin-left:46%; margin-bottom:4px;font-size:40px;">Timetable</h1><hr>
     <div class="search">
         <form action="timetable.php" method="post">
             <label for="">Year</label><br>
@@ -156,7 +157,7 @@ include("config.php");
                 <option value="2">
                 <option value="3">
             </datalist>
-            <label for="">Paraleli</label><br>
+            <label for="">Group</label><br>
             <input type="text" name="paraleli" class="input1" list="paraleli" required>
             <datalist id="paraleli">
                 <option value="A">

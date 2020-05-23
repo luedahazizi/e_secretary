@@ -3,6 +3,7 @@ include("config.php");
 if(isset($_POST['username'])&& isset($_POST['password'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
+   $pass=md5($pass);
 
     $role = "select r. RoliEmer ,u.emer,u.mbiemer ,u.email  ,u.telefon
     from user u join roli r on u.RolID=r.RoliID 
@@ -28,7 +29,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
             $_SESSION["username"]=$user;
             $_SESSION["role"] =  $row['RoliEmer'];
             if($row['RoliEmer']=="admin"){
-                header("Location:homepage.php");
+                header("Location:dashboard.php");
             } else  if($row['RoliEmer']=="mesues"){
                 header("location:mesues.php");
             } else if($row['RoliEmer']=="nxenes"){

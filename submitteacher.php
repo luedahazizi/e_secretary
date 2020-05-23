@@ -53,13 +53,13 @@ $message = 'Welcome to e-secretary.Now you are a member and your password is-123
 $headers = "From: sonjetamimini@gmail.com";
 mail($to, $subject, $message, $headers);
   
-echo "Succes";
+echo "Registration Successful";
 
 }
 
 
 if ($conn->query($sql1) === TRUE ) {
-echo "New record created successfully";
+//echo "New record created successfully";
 } else {
 //echo "Error";
 }

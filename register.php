@@ -1,6 +1,7 @@
 <?php
 require_once('config.php');
 include('editstudent.php');
+
 if (isset($_GET['edit'])) {
     
     
@@ -20,8 +21,9 @@ if (isset($_GET['edit'])) {
     $viti = $record['Viti'];
     $paraleli = $record['Paraleli'];
     $lendaID = $record['userID'];
+   
 
-    echo("Error description: " . mysqli_error($conn));
+   
 }
 
 

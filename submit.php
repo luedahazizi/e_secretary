@@ -32,7 +32,7 @@ if(isset($_POST)){
     //$password    = 'student';
     $email       = $_POST['email'];
     $prind       = $_POST['prind'];
-
+    $pass=hash('sha512',"12345");
     $telefon     = $_POST['telefon'];
     $datelindje  = $_POST['datelindje'];
     $viti        = $_POST['viti'];
@@ -45,7 +45,7 @@ if(isset($_POST)){
 
    
     $sql1 = "INSERT INTO user (emer, mbiemer, username, password, email,telefon,RolID)
-VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '12345', '$_POST[email]', '$_POST[telefon]',3)";
+VALUES ('$_POST[emer]' ,'$_POST[mbiemer]', '$_POST[username_val]', '$pass', '$_POST[email]', '$_POST[telefon]',3)";
  $sql2 = "INSERT INTO nxenes (datelindje,viti,paraleli,NxenesID,PrindID)
  VALUES (  '$_POST[datelindje]', '$_POST[viti]', '$_POST[paraleli]',last_insert_id(),'$row[userID]' )";
  
@@ -62,22 +62,22 @@ if (!($conn->query($sql1))) {
  $headers = "From: sonjetamimini@gmail.com";
  mail($to, $subject, $message, $headers);
    
- echo "Succes";
+ echo "Registration Successful";
 
  }
 
 
 if ($conn->query($sql1) === TRUE ) {
     
-echo "New record created successfully";
+//echo "New record created successfully";
 } else {
 //echo "Error ";
 }
 if ($conn->query($sql2) === TRUE  ) {
     
-    echo "New record created successfully";
+    //echo "New record created successfully";
     } else  {
-    echo ("Error description: " . mysqli_error($conn)); ;
+   // echo ("Error description: " . mysqli_error($conn)); ;
     }
 
 $conn->close();

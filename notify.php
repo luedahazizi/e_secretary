@@ -12,11 +12,12 @@ require_once ('config.php');
        
 </head>
 <body>
+
 <?php
     include "homepage.php";
     ?>
 <div class="section">
-
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Notification</h1><hr>
     <div class="notify">
         <?php
         
@@ -44,6 +45,8 @@ require_once ('config.php');
             }
         }
         ?>
+        
+      
         <form enctype="multipart/form-data" action="notify.php" method="post">
        
             <label >Title</label><br>

@@ -1,8 +1,10 @@
+
 body {    
   margin: 0 !important;
   padding: 0 !important;
 
 }
+
 
 @media only screen and (max-width:800px) {
   /* For tablets: */
@@ -12,9 +14,17 @@ body {
   }
   
 }
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .tbox , .menu, .dropbtn,.dropdown-content {
+    width: 80%;
+    padding: 0;
+  }
+  
+}
 @media only screen and (max-width:500px) {
   /* For mobile phones: */
-  .container, .container {
+  .container {
     width: 100%;
   }
 }
@@ -27,7 +37,7 @@ body {
 
 .admin{
   
-  
+  margin: 0px 10px 10px 10px;
    font-size: 20px;
 }
 
@@ -71,14 +81,14 @@ li a, .dropbtn {
  #search{
   left: 300px;
    position:relative;
- top:-40px;
+ top:-50px;
    background-color: white;
    border-radius: 10px;
 }
 #parentname{
   left: 1200px;
   position:relative;
-  top: -85px;
+  top: -40px;
   font-size: 20px;
   color:darkgray ;
 }
@@ -129,12 +139,16 @@ li a, .dropbtn {
 .button {
   
   
-  margin-top: 10px;
+  left: 30px;
+  position:relative;
+top:15px;
+  background-color: white;
+  border-radius: 25px;
 
 }
 #esecretary{
  
-  top: -95px;
+  top: -65px;
   font-size: 20px;
   color:rgb(203, 199, 199) ;
   

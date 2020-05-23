@@ -18,8 +18,8 @@ if (isset($_POST['Submit'])) {
 
     $email = $_POST['useremail'];
     $opwd = $_POST['opwd'];
-    $npwd = $_POST['npwd'];
-    $cpwd = $_POST['cpwd'];
+    $npwd = md5($_POST['npwd']);
+    $cpwd =md5( $_POST['cpwd']);
 
     $query = mysqli_query($conn, "SELECT Email,Username,Password FROM user WHERE Email = '$email'   AND Password = '$opwd'");
     
@@ -64,14 +64,14 @@ if (isset($_POST['Submit'])) {
     </table>
     <style>
         body {
-            background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg");
+           
             background-repeat: no-repeat;
             background-size: 130%;
             background-position: center;
         }
 
         h1 {
-            color: green;
+            color: black;
             text-align: center;
             font-size: 30px;
             font-family: 'Candal';
@@ -89,48 +89,7 @@ if (isset($_POST['Submit'])) {
     </style>
 
 </form>
-<!-- <script src="jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script type="text/javascript">
-$(function(){
-   $('#register').click(function(e){
-       var valid = this.form.checkValidity();
-       if(valid){
-           var useremail = $('#useremail').val();
-           var opwd = $('#opwd').val();
-           var npwd= $('#npwd').val();
-           var cpwd = $('#cpwd').val();
-          
-           e.preventDefault();
-           $.ajax({
-               type: 'POST',
-               url:'changepass.php',
-               data:{useremail: useremail,opwd: opwd,npwd: npwd,cpwd:cpwd},
-  success: function(data){
-    Swal.fire(
-        'e-secretary',
-                      data,
-                      )
-   
 
-  },
-  error: function(data){
-    Swal.fire({
-        icon: 'error',
-  title: 'Oops...',
-  text: 'Something went wrong!'
-    }
-        )
-   
-  }
-  });
-       }
-   
-    });
-
-});
-</script> -->
 </body>
 
 

@@ -4,14 +4,14 @@ include('editteacher.php');
 
 
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Student</title>
-    <link rel="stylesheet" href="subjects.css">
+    <title>Teacher</title>
+    
     <style>.btn_delete{
   background-color: #e5e778;
     color: white;
@@ -77,7 +77,27 @@ tr,td,th{
 	margin-bottom:10px;
 }
 </style>
-    
+
+<script type="text/javascript">
+function Search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchteacher");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("teacher");
+  tr = table.getElementsByTagName('tr');
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName('td')[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 </head>
 <body>
 <?php
@@ -85,15 +105,20 @@ tr,td,th{
 include "homepage.php";
 ?>
 <div class="tbox">
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Teacher</h1><hr>
+            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;">Teacher Details<a  href='registerteacher.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
+           
 
-            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Student Details<a  href='registerteacher.php?submit={$r["userID"]}' class='btn_add'>Add</a></h3><br>
+
             <?php
             if(isset($_GET["mes"]))
             {
                 echo "<div class='error'>{$_GET["mes"]}</div>";
             }
             ?>
-            <table border="3px">
+ 
+ 
+            <table id="teacher" border="3px">
                 <tr>
                 <th>Nr.</th>
                     <th>ID</th>
@@ -109,6 +134,7 @@ include "homepage.php";
                     <th colspan="2">Action</th>
                 </tr>
                 <?php
+            
                 $mesues="select * FROM  user u join mesues m on u.userID=m.mesuesID";
                 $res=$conn->query($mesues);
                 if($res->num_rows>0){
@@ -140,6 +166,7 @@ include "homepage.php";
                 ?>
                
         </table>
+       
     </div>
 </body>
 </html>

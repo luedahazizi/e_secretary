@@ -10,9 +10,9 @@ else {
 <head>
 <style>
 body{
-				background-image: url(\"https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg\");
+				background-image: url(\"https://i.pinimg.com/564x/a7/70/13/a77013e286870cf305d06dd494ff4e37.jpg\");
 				background-repeat: no-repeat;
-				background-size: 100%;
+				background-size: 50%;
 
 			}
 			table{
@@ -21,25 +21,25 @@ body{
 			left:300px;
 			top:80px;
 			border: solid;
-			border-color:midnightblue ;
-			border-width: 2px;
+			border-color:#0099e6 ;
+			border-width: 3px;
 			font-size: 25px;
 			width: 700px;
 			}
 			th{
 			font-size: 28px;
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 			}
 			tr{
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 		
 			
 			}
 			td{
 			border: solid;
-			border-color: midnightblue;
+			border-color:#0099e6;
 			alignment: center;
 			font-size: 20px;
 			text-align: center;
@@ -88,7 +88,7 @@ function Search(){
 </head>
 <body>
 <div id='titull'>
-<h1>Notifications</h1>
+<h1>Subjects</h1>
 <h4>Here you can find the subjects your child is going to take this academic year</h4></div>
 <input type='text' id='search' onkeyup='Search()' placeholder='Search for subject..'>
 <table id='Subjects'>

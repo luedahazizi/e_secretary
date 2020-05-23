@@ -19,7 +19,7 @@ else {
     <style>
         #esecretary{
             font-size: 20px;
-            color: darkgray;
+            color: Black;
         }
         body{
             background-color: white;
@@ -28,9 +28,11 @@ else {
             max-width: 100vh;
         }
         #upperpannel{
-            background-color:midnightblue ;
+            background-color:#0099e6 ;
             height: 45px;
             width: 1000vh;
+            position: relative;
+            top:-30px;
         }
         
        .sidenav{
@@ -38,7 +40,7 @@ else {
        background-color:lightgray;
        width:40%;
        height:100vh;
-       top:-140px;
+       top:-170px;
        position: relative;
        }
      
@@ -53,7 +55,7 @@ else {
             position:relative;
             top: -85px;
             font-size: 20px;
-            color:darkgray ;
+            color:black;
             
         }
         #imazh{
@@ -68,10 +70,10 @@ else {
         background-color:lightgray;
         width: 50%;
         left:1015px;
-        top: -1275px;
+        top: -1305px;
         height:100vh;
         font-size:18px;   
-        color:midnightblue;     
+        color:black;
         }
         
 
@@ -80,7 +82,7 @@ else {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #0099e6;
   display: block;
   border: none;
   background: none;
@@ -92,12 +94,12 @@ else {
 
 
 .sidenav a:hover, .dropdown-btn:hover {
-  color:midnightblue;
+  color:black;
 }
 
 
 .active {
-  background-color:midnightblue;
+  background-color:#0099e6;
   color: white;
 }
 
@@ -116,7 +118,7 @@ else {
 <body>
 <div id=\"upperpannel\">
     <h4 id=\"esecretary\"><u>E_secretary</u></h4>
-    <input type=\"text\" placeholder=\"Search..\" id =\"search\">
+    
     <h4 id=\"studentname\">";
     echo $_SESSION['emer'] . "  " . $_SESSION['mbiemer'];
     echo "</h4>
@@ -133,6 +135,8 @@ else {
     <a href=\"marksStudent.php\" id=\"marks\">Marks</a><br>
     <a href=\"subjectsStudent.php\" id=\"subjects\">Subjects</a><br>
     <a href=\"notificationsStudent.php\" id=\"notifications\">Notifications</a><br>
+       <a href=\"timetable.php\" id=\"notifications\">Timetable</a><br>
+    
     
     <button class=\"dropdown-btn\">Settings
     <i class=\"fa fa-caret-down\"></i>

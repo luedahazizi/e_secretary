@@ -34,6 +34,8 @@ else {
             background-color:rgb(37, 87, 95) ;
             height: 45px;
             width: 1000vh;
+            position: relative;
+            top:-30px;
         }
         
        .sidenav{
@@ -41,12 +43,12 @@ else {
        background-color:lightgray;
        width:40%;
        height:100vh;
-       top:-140px;
+       top:-170px;
        position: relative;
        }
      
         #hello{
-        padding-left: 550px;
+        padding-left: 500px;
             font-size: 50px;
             width:50%;
             
@@ -54,9 +56,9 @@ else {
         #parentname{
             left: 1200px;
             position:relative;
-            top: -85px;
+            top: 50px;
             font-size: 20px;
-            color:darkgray ;
+            color:black ;
             
         }
         #imazh{
@@ -71,7 +73,7 @@ else {
         background-color:lightgray;
         width: 50%;
         left:1015px;
-        top: -1275px;
+        top: -1305px;
         height:100vh;
         font-size:18px;   
         color:rgb(119, 136, 153);     
@@ -119,7 +121,7 @@ else {
 <body>
 <div id=\"upperpannel\">
     <h4 id=\"esecretary\"><u>E_secretary</u></h4>
-    <input type=\"text\" placeholder=\"Search..\" id =\"search\">
+    
     <h4 id=\"parentname\">";
        echo $_SESSION['emer'] . "  " . $_SESSION['mbiemer'];
     echo "</h4>

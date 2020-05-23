@@ -9,18 +9,17 @@ else {
     echo "<html><head>
 </head>
 <style>
-body{
-				background-image: url(\"https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg\");
+body{background-image: url(\"https://i.pinimg.com/564x/a7/70/13/a77013e286870cf305d06dd494ff4e37.jpg\");
 				background-repeat: no-repeat;
-				background-size: 100%;
+				background-size: 50%;
 			}
 			table{
 			border-collapse: collapse;
 			position:relative;
 			left:450px;
-			top:80px;
+			top:40px;
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 			border-width: 2px;
 			font-size: 25px;
 			width: 400px;
@@ -28,18 +27,18 @@ body{
 			th{
 			font-size: 28px;
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 			}
 			tr{
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 		
 			
 			}
 			
 			td{
 			border: solid;
-			border-color: midnightblue;
+			border-color: #0099e6;
 			alignment: center;
 			font-size: 20px;
 			text-align: center;
@@ -57,7 +56,7 @@ body{
  #filter {
  left:490px;
  position: relative;
- top:90px;
+ top:50px;
  
  }
  select{
@@ -68,6 +67,9 @@ body{
 				position: relative;
 				text-align: center;
 				}		
+				button:hover{
+				color:#0099e6;
+				}
 </style>
 <script>
 function Search(){

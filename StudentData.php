@@ -17,18 +17,21 @@ else {
 <head>
 <style>
 body{
-background-image: url(\"https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg\");
+background-image: url(\"https://i.pinimg.com/564x/a7/70/13/a77013e286870cf305d06dd494ff4e37.jpg\");
+				background-repeat: no-repeat;
+				background-size: 50%;
 }
 #info{
 position: relative;
 left:600px;
-color: midnightblue;
+color: Black;
 font-size: 20px;
 border-color: midnightblue;
 }
 #title{
 position: relative;
 left:-50px;
+color: #0099e6;
 }
 
 </style>

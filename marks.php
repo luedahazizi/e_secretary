@@ -18,7 +18,7 @@ body{
 			border-collapse: collapse;
 			position:relative;
 			left:410px;
-			top:70px;
+			top:40px;
 			border: solid;
 			border-color: rgb(37, 87, 95);
 			border-width: 2px;
@@ -53,7 +53,7 @@ body{
   border-radius: 10px;
   position: relative;
   left: 520px;
-  top:50px;
+  top:20px;
  
 }
 #titull{

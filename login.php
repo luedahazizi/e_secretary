@@ -30,7 +30,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
 
             $_SESSION["role"] =  $row['RoliEmer'];
             if($row['RoliEmer']=="admin"){
-                header("Location:admin.php");
+                header("Location:homepage.php");
             } else  if($row['RoliEmer']=="mesues"){
                 header("location:mesues.php");
             } else if($row['RoliEmer']=="nxenes"){

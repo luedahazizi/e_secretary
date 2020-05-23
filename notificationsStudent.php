@@ -11,9 +11,9 @@ else {
 <title>Notifications</title>
 <style>
 body{
-				background-image: url(\"https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-045.jpg\");
+				background-image: url(\"https://i.pinimg.com/564x/a7/70/13/a77013e286870cf305d06dd494ff4e37.jpg\");
 				background-repeat: no-repeat;
-				background-size: 100%;
+				background-size: 50%;
 				}
 				#titull{
 				position: relative;

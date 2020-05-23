@@ -65,9 +65,9 @@ function get_username()
     <div class="container">
         <div class="row">
         <div class="col-md-9 col-md-offset-2  m-auto">
-        <form  role="form" action="parent.php" method='post'>
+        <form  role="form" action="parentlist.php" method='post'>
        
-        <a href="parent.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
+        <a href="parentlist.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
         <legend class="text-center">Register Parent</legend>
             <hr class="mb-3">
             <fieldset>

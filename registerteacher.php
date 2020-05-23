@@ -66,9 +66,9 @@ function get_username()
         
         <div class="row">
         <div class="col-md-9 col-md-offset-2">
-        <form  role="form" action="teacher.php" method='post'>
+        <form  role="form" action="teacherlist.php" method='post'>
        
-        <a href="teacher.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
+        <a href="teacherlist.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
         <legend class="text-center">Register Teacher</legend>
             <hr class="mb-3">
             <fieldset>

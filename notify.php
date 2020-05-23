@@ -1,5 +1,7 @@
 <?php
 require_once ('config.php');
+include('editnotify.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

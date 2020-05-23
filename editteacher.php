@@ -15,7 +15,7 @@ if(isset($_GET['id'])){
     $userID = $_GET['id'];
     mysqli_query($conn,"DELETE  FROM mesues  where MesuesID=$userID");
     mysqli_query($conn,"DELETE  FROM user  where userID=$userID");
-    echo "<script>window.open('teacher.php?mes=Data Deleted..','_self')</script>";
+    echo "<script>window.open('teacherlist.php?mes=Data Deleted..','_self')</script>";
     
 }
 if ( isset($_POST['update'])) {
@@ -32,7 +32,7 @@ if ( isset($_POST['update'])) {
     
     mysqli_query($conn,"UPDATE mesues  SET datelindje='$datelindje'   WHERE MesuesID = '$id'");
     mysqli_query($conn,"UPDATE user  SET Emer='$emri' , mbiemer='$mbiemer' , username='$username',email='$email',telefon='$telefon' WHERE userID = '$id'");
-    echo "<script>window.open('teacher.php?mes=Data Updated..','_self')</script>";
+    echo "<script>window.open('teacherlist.php?mes=Data Updated..','_self')</script>";
     
 }
 

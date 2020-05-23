@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-include('editparent.php');
+include('editstudent.php');
 
 
 ?>
@@ -10,8 +10,8 @@ include('editparent.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Parent</title>
-   
+    <title>Student</title>
+    <link rel="stylesheet" href="subjects.css">
     <style>.btn_delete{
   background-color: #e5e778;
     color: white;
@@ -41,7 +41,7 @@ include('editparent.php');
     background: rgb(237, 247, 247);
 }
 tr,td,th{
-  padding:10px;
+  padding:12px;
  
 }
 .success{
@@ -77,12 +77,14 @@ tr,td,th{
     border: ghostwhite;
     }
 </style>
+</style>
+
 <script type="text/javascript">
 function Search() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("searchteacher");
   filter = input.value.toUpperCase();
-  table = document.getElementById("parent");
+  table = document.getElementById("student");
   tr = table.getElementsByTagName('tr');
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName('td')[2];
@@ -97,7 +99,6 @@ function Search() {
   }
 }
 </script>
-    
 </head>
 <body>
 <?php
@@ -105,15 +106,15 @@ function Search() {
 include "homepage.php";
 ?>
 <div class="tbox">
-<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Parent</h1><hr>
-            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Parent Details<a  href='registerparent.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Student</h1><hr>
+            <h3  style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Student Details  <a  href='register.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
             <?php
             if(isset($_GET["mes"]))
             {
                 echo "<div class='error'>{$_GET["mes"]}</div>";
             }
             ?>
-            <table id=parent border="3px">
+            <table id="student" border="3px">
                 <tr>
                 <th>Nr.</th>
                     <th>ID</th>
@@ -122,15 +123,15 @@ include "homepage.php";
                     <th>Username</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Graduation</th>
-                    <th>Status</th>
-                    <th>Profesion</th>
+                    <th>Birthday</th>
+                    <th>Year</th>
+                    <th>Group</th>
                     
                     <th colspan="2">Action</th>
                 </tr>
                 <?php
-                $parent="select * FROM  user u join prindi p on u.userID=p.PrindID";
-                $res=$conn->query($parent);
+                $student="select * FROM  user u join nxenes n on u.userID=n.nxenesID";
+                $res=$conn->query($student);
                 if($res->num_rows>0){
                     $i=0;
                     while($r=$res->fetch_assoc()){
@@ -143,14 +144,13 @@ include "homepage.php";
                         <td>{$r['Username']}</td>
                         <td>{$r['Email']}</td>
                         <td>{$r['Telefon']}</td>
-                        <td>{$r['Arsimi']}</td>
-                        <td>{$r['Status']}</td>
-                        <td>{$r['Profesioni']}</td>
+                        <td>{$r['Datelindje']}</td>
+                        <td>{$r['Viti']}</td>
+                        <td>{$r['Paraleli']}</td>
 
                         
-                        <td><a href='editparent.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
-                        <td><a href='registerparent.php?edit={$r["userID"]}' class='btn_update'>Update</td>
-                      
+                        <td><a href='editstudent.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
+                        <td><a href='register.php?edit={$r["userID"]}' class='btn_update'>Update</td>
                         </tr>";
                     }
                 }

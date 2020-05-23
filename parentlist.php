@@ -1,17 +1,17 @@
 <?php
 require_once('config.php');
-include('editteacher.php');
+include('editparent.php');
 
 
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Teacher</title>
-    
+    <title>Parent</title>
+   
     <style>.btn_delete{
   background-color: #e5e778;
     color: white;
@@ -34,17 +34,6 @@ include('editteacher.php');
     font-size: 10px;
     border: ghostwhite;
     }
-    .btn_add{
-  background-color:rgb(121, 174, 182);
-    color: white;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 10px;
-    font-size: 15px;
-    border: ghostwhite;
-    }
     .tbox table{
     border-collapse:collapse;
     border-color: rgb(121, 174, 182);
@@ -52,7 +41,7 @@ include('editteacher.php');
     background: rgb(237, 247, 247);
 }
 tr,td,th{
-  padding:12px;
+  padding:10px;
  
 }
 .success{
@@ -76,14 +65,24 @@ tr,td,th{
 	text-align:center;
 	margin-bottom:10px;
 }
+.btn_add{
+  background-color:rgb(121, 174, 182);
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 15px;
+    border: ghostwhite;
+    }
 </style>
-
 <script type="text/javascript">
 function Search() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("searchteacher");
   filter = input.value.toUpperCase();
-  table = document.getElementById("teacher");
+  table = document.getElementById("parent");
   tr = table.getElementsByTagName('tr');
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName('td')[2];
@@ -98,6 +97,7 @@ function Search() {
   }
 }
 </script>
+    
 </head>
 <body>
 <?php
@@ -105,20 +105,15 @@ function Search() {
 include "homepage.php";
 ?>
 <div class="tbox">
-<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Teacher</h1><hr>
-            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;">Teacher Details<a  href='registerteacher.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
-           
-
-
+<h1  style="margin-top:10px; margin-left:53%; margin-bottom:4px;font-size:40px;">Parent</h1><hr>
+            <h3 style="margin-top:10px; margin-left:23%; margin-bottom:4px;"> Parent Details  <a  href='registerparent.php?submit={$r["userID"]}' class='btn_add'>Add</a><input style="margin-top:10px; margin-left:50%; margin-bottom:4px;" type='text' id="searchteacher" onkeyup="Search()" placeholder='Search ...'></h3><br>
             <?php
             if(isset($_GET["mes"]))
             {
                 echo "<div class='error'>{$_GET["mes"]}</div>";
             }
             ?>
- 
- 
-            <table id="teacher" border="3px">
+            <table id=parent border="3px">
                 <tr>
                 <th>Nr.</th>
                     <th>ID</th>
@@ -127,16 +122,15 @@ include "homepage.php";
                     <th>Username</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Birthday</th>
-                   
-                   
+                    <th>Graduation</th>
+                    <th>Status</th>
+                    <th>Profesion</th>
                     
                     <th colspan="2">Action</th>
                 </tr>
                 <?php
-            
-                $mesues="select * FROM  user u join mesues m on u.userID=m.mesuesID";
-                $res=$conn->query($mesues);
+                $parent="select * FROM  user u join prindi p on u.userID=p.PrindID";
+                $res=$conn->query($parent);
                 if($res->num_rows>0){
                     $i=0;
                     while($r=$res->fetch_assoc()){
@@ -149,14 +143,14 @@ include "homepage.php";
                         <td>{$r['Username']}</td>
                         <td>{$r['Email']}</td>
                         <td>{$r['Telefon']}</td>
-                        <td>{$r['Datelindje']}</td>
-                       
-                        
+                        <td>{$r['Arsimi']}</td>
+                        <td>{$r['Status']}</td>
+                        <td>{$r['Profesioni']}</td>
 
                         
-                        <td><a href='editteacher.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
-                        <td><a href='registerteacher.php?edit={$r["userID"]}' class='btn_update'>Update</td>
-                       
+                        <td><a href='editparent.php?id={$r["userID"]}' class='btn_delete'>Delete</td>
+                        <td><a href='registerparent.php?edit={$r["userID"]}' class='btn_update'>Update</td>
+                      
                         </tr>";
                     }
                 }
@@ -166,7 +160,6 @@ include "homepage.php";
                 ?>
                
         </table>
-       
     </div>
 </body>
 </html>

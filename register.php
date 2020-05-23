@@ -41,7 +41,7 @@ if (isset($_GET['edit'])) {
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <script src="jquery-3.3.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link href="student.php">
+<link href="studentlist.php">
 <script type="text/javascript">
 
 function get_username()
@@ -76,9 +76,9 @@ function get_username()
     <div class="container">
         <div class="row">
         <div class="col-md-9 col-md-offset-2  m-auto">
-        <form  role="form" action="student.php" method='post'>
+        <form  role="form" action="studentlist.php" method='post'>
        
-        <a href="student.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
+        <a href="studentlist.php" class="btn btn-secondary btn-lg active ml-auto" role="button" aria-pressed="true">Back to list</a>
         <legend class="text-center">Register Student</legend>
             <hr class="mb-3">
             <fieldset>

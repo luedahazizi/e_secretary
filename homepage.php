@@ -47,9 +47,9 @@ else {
         <li class=\"dropdown\">
           <a href=\"javascript:void(0)\" class=\"dropbtn\"><i class=\"fas fa-users\"></i> Menage Users</a>
           <div class=\"dropdown-content\">
-            <a href=\"student.php\">Student</a>
-            <a href=\"parent.php\">Parent</a>
-            <a href=\"teacher.php\">Teacher</a>
+            <a href=\"studentlist.php\">Student</a>
+            <a href=\"parentlist.php\">Parent</a>
+            <a href=\"teacherlist.php\">Teacher</a>
           </div>
         </li>
         <li><a href=\"subject.php\"><i class=\"fas fa-address-book\"></i> Subjects</a></li>

@@ -23,7 +23,7 @@ body{
 				position: relative;
 				left: 375px;
 				border-width: 1px;
-				border-color: #225029;
+				border-color: midnightblue;
 				border-style: solid;
 				width:600px;
 				}
@@ -56,8 +56,7 @@ body{
 <body><div id='titull'>
 <h1>Notifications</h1>
 <h4>Here you can find publications and notifications that we post for activities,meetings,exams and more</h4></div>";
-    $query = "SELECT titull,permbajtja,lloji,data,Attachments FROM publikime join user on 
-publikime.PublikuesID=user.userID where user.rolID=1 order by data desc ";
+    $query = "SELECT titull,permbajtja,lloji,data,Attachments FROM publikime  order by data desc ";
     $result = mysqli_query($connect, $query);
     while ($row = mysqli_fetch_array($result)) {
         $adresa = "http:\\e_secretary\\uploads\\" . $row["Attachments"];

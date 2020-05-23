@@ -3,6 +3,7 @@ include("connection.php");
 if(isset($_POST['username'])&& isset($_POST['password'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
+    $pass=md5($pass);
 
     $role = "select r. RoliEmer ,u.emer,u.mbiemer ,u.email  ,u.telefon
     from user u join roli r on u.RolID=r.RoliID 
@@ -26,12 +27,14 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
             $_SESSION['mbiemer']=$row['mbiemer'];
             $_SESSION['loggedin'] = TRUE;
             $_SESSION["username"]=$user;
+
             $_SESSION["role"] =  $row['RoliEmer'];
             if($row['RoliEmer']=="admin"){
                 header("Location:admin.php");
             } else  if($row['RoliEmer']=="mesues"){
                 header("location:mesues.php");
             } else if($row['RoliEmer']=="nxenes"){
+
                 header("location:nxenes.php");
             } else if($row['RoliEmer']=="prind"){
                 $emerPrindi = $_SESSION['emer'];

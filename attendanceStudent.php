@@ -20,7 +20,7 @@ body{
 			left:450px;
 			top:80px;
 			border: solid;
-			border-color: rgb(37, 87, 95);
+			border-color: midnightblue;
 			border-width: 2px;
 			font-size: 25px;
 			width: 400px;
@@ -28,18 +28,18 @@ body{
 			th{
 			font-size: 28px;
 			border: solid;
-			border-color: rgb(37, 87, 95);
+			border-color: midnightblue;
 			}
 			tr{
 			border: solid;
-			border-color: rgb(37, 87, 95);
+			border-color: midnightblue;
 		
 			
 			}
 			
 			td{
 			border: solid;
-			border-color: rgb(37, 87, 95);
+			border-color: midnightblue;
 			alignment: center;
 			font-size: 20px;
 			text-align: center;
@@ -126,7 +126,7 @@ function Search(){
 </script>
 </head>
 <body>
-<div id='titull'><h1>Attendance</h1><h4>Here you can find a list of absences linked with the subject name and date of your child</h4></div>
+<div id='titull'><h1>Attendance</h1><h4>Here you can find a list of absences linked with the subject name and date </h4></div>
 <div id='filter'>
 <input type='text' id='search' onkeyup='Search()' placeholder='Search ...'>
 <button onclick='sortTable()'>show oldest first</button>
@@ -134,29 +134,21 @@ function Search(){
 <br>
 ";
 
-    $emerPrindi = $_SESSION['emer'];
-    $mbiemerPrindi = $_SESSION['mbiemer'];
+    $emer = $_SESSION['emer'];
+    $mbiemer = $_SESSION['mbiemer'];
 
-    $query = "Select mungesat.mungesaID, user.emer, user.mbiemer, lenda.emri,mungesat.data from user
+    $query = "Select mungesat.mungesaID,  lenda.emri,mungesat.data from user
 Inner join mungesat on mungesat.NxenesId = user.userid
 Inner join lenda on lenda.lendaId = mungesat.lendaid
-Where user.userid in (SELECT nx.userID from user nx 
-  INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
-  INNER JOIN user p ON p.userID = nxenes.PrindID
-  WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ) 
+Where user.userid=(select userID from User where emer='$emer' and mbiemer='$mbiemer')
   order by  data desc" ;
 
     $result = mysqli_query($connect, $query);
 
-    $gjejFemije="SELECT nx.userID from user nx 
-  INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
-  INNER JOIN user p ON p.userID = nxenes.PrindID
-  WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ";
-    $result1=mysqli_query($connect,$gjejFemije);
 
-    if(mysqli_num_rows($result1)>1){ echo "<table id='attendance'>
+
+     echo "<table id='attendance'>
 <th style='display: none'>ID</th>
-<th>Name</th>
 <th>Subject</th>
 <th>Date</th>
 <tr>";
@@ -164,9 +156,7 @@ Where user.userid in (SELECT nx.userID from user nx
 
             echo"<td style='display: none'>";
             echo $row['mungesaID'];
-            echo"</td><td>" ;
-            echo $row['emer']." ".$row['mbiemer'] ;
-            echo "</td> <td>";
+            echo" <td>";
             echo $row['emri'];
             echo"</td> <td>";
             echo $row['data'];
@@ -179,21 +169,3 @@ Where user.userid in (SELECT nx.userID from user nx
 
 
     }
-    else {
-        echo" <table id='attendance'><th>Subject</th>
-<th>Date</th>
-<tr>
- ";
-    }
-    while ($row = mysqli_fetch_array($result)) {
-
-        echo"<td>";
-        echo $row['emri'];
-        echo"</td> <td>";
-        echo $row['data'];
-        echo"</td>
-         </tr>";
-    };
-
-    echo "</table></body></html>";
-}

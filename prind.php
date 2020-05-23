@@ -136,7 +136,7 @@ else {
     <a href=\"marks.php\" id=\"marks\">Marks</a><br>
     <a href=\"subjects.php\" id=\"subjects\">Subjects</a><br>
     <a href=\"notifications.php\" id=\"notifications\">Notifications</a><br>
-    <a href=\"pagesa.html\" id=\"payment\">Payment</a><br>
+    <a href=\"pagesa.php\" id=\"payment\">Payment</a><br>
     <button class=\"dropdown-btn\">Settings
     <i class=\"fa fa-caret-down\"></i>
   </button>

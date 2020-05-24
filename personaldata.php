@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-echo "<html>
+    if ($_SESSION['role'] == 'prind') {
+        echo "<html>
 <head>
 <style>
 body{
@@ -32,17 +33,20 @@ left:-50px;
 Personal Information
 </h2>
 <h3>Name Surname: </h3>
-" ;
-echo $_SESSION['emer'] . " " . $_SESSION['mbiemer'];
+";
+        echo $_SESSION['emer'] . " " . $_SESSION['mbiemer'];
 
-echo " <h3>Email Adress</h3>";
-echo $_SESSION['email'];
-echo "<h3>Username:</h3>";
-echo $_SESSION['username'];
-echo"<h3> Telephone:</h3>";
-echo $_SESSION['telefon'];
-echo"</div>
+        echo " <h3>Email Adress</h3>";
+        echo $_SESSION['email'];
+        echo "<h3>Username:</h3>";
+        echo $_SESSION['username'];
+        echo "<h3> Telephone:</h3>";
+        echo $_SESSION['telefon'];
+        echo "</div>
 </body>
 </html>
 ";
+    } else {
+        header("location:error.html");
+    }
 }

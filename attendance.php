@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-    echo "<html><head>
+    if ($_SESSION['role'] == 'prind') {
+        echo "<html><head>
 </head>
 <style>
 body{
@@ -137,66 +138,69 @@ function Search(){
 <br>
 ";
 
-    $emerPrindi = $_SESSION['emer'];
-    $mbiemerPrindi = $_SESSION['mbiemer'];
+        $emerPrindi = $_SESSION['emer'];
+        $mbiemerPrindi = $_SESSION['mbiemer'];
 
-    $query = "Select mungesat.mungesaID, user.emer, user.mbiemer, lenda.emri,mungesat.data from user
+        $query = "Select mungesat.mungesaID, user.emer, user.mbiemer, lenda.emri,mungesat.data from user
 Inner join mungesat on mungesat.NxenesId = user.userid
 Inner join lenda on lenda.lendaId = mungesat.lendaid
 Where user.userid in (SELECT nx.userID from user nx 
   INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
   INNER JOIN user p ON p.userID = nxenes.PrindID
   WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ) 
-  order by  data desc" ;
+  order by  data desc";
 
-    $result = mysqli_query($connect, $query);
+        $result = mysqli_query($connect, $query);
 
-    $gjejFemije="SELECT nx.userID from user nx 
+        $gjejFemije = "SELECT nx.userID from user nx 
   INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
   INNER JOIN user p ON p.userID = nxenes.PrindID
   WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ";
-    $result1=mysqli_query($connect,$gjejFemije);
+        $result1 = mysqli_query($connect, $gjejFemije);
 
-    if(mysqli_num_rows($result1)>1){ echo "<table id='attendance'>
+        if (mysqli_num_rows($result1) > 1) {
+            echo "<table id='attendance'>
 <th style='display: none'>ID</th>
 <th>Name</th>
 <th>Subject</th>
 <th>Date</th>
 <tr>";
+            while ($row = mysqli_fetch_array($result)) {
+
+                echo "<td style='display: none'>";
+                echo $row['mungesaID'];
+                echo "</td><td>";
+                echo $row['emer'] . " " . $row['mbiemer'];
+                echo "</td> <td>";
+                echo $row['emri'];
+                echo "</td> <td>";
+                echo $row['data'];
+                echo "</td>
+         </tr>";
+            };
+
+            echo "</table></body></html>";
+
+
+        } else {
+            echo " <table id='attendance'><th>Subject</th>
+<th>Date</th>
+<tr>
+ ";
+        }
         while ($row = mysqli_fetch_array($result)) {
 
-            echo"<td style='display: none'>";
-            echo $row['mungesaID'];
-            echo"</td><td>" ;
-            echo $row['emer']." ".$row['mbiemer'] ;
-            echo "</td> <td>";
+            echo "<td>";
             echo $row['emri'];
-            echo"</td> <td>";
+            echo "</td> <td>";
             echo $row['data'];
-            echo"</td>
+            echo "</td>
          </tr>";
         };
 
         echo "</table></body></html>";
-
-
-
     }
-    else {
-        echo" <table id='attendance'><th>Subject</th>
-<th>Date</th>
-<tr>
- ";
+    else{
+       header("location:error.html");
     }
-    while ($row = mysqli_fetch_array($result)) {
-
-        echo"<td>";
-        echo $row['emri'];
-        echo"</td> <td>";
-        echo $row['data'];
-        echo"</td>
-         </tr>";
-    };
-
-    echo "</table></body></html>";
 }

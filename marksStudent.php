@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
+    if($_SESSION['role']=='nxenes'){
     echo "<html>
 <head>
 <style>
@@ -134,4 +135,8 @@ function Search(){
         }
 
         echo "</table></body></html>";
+    }
+    else{
+        header("location:error.html");
+    }
     }

@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-    echo "<html>
+    if ($_SESSION['role'] == 'prind') {
+        echo "<html>
 <head>
 <style>
 body{
@@ -99,35 +100,38 @@ function Search(){
 <th>Year of study</th>
 <tr>
 ";
-    $emerPrindi = $_SESSION['emer'];
-    $mbiemerPrindi = $_SESSION['mbiemer'];
-    $query = "select lenda.Emri,user.Emer,user.Mbiemer,user.Email,lenda.Viti from lenda join mesues on mesues.MesuesID=lenda.MesuesID  join user on user.userID=mesues.MesuesID where lenda.viti in (select viti from nxenes where NxenesID in (SELECT nx.userID from user nx 
+        $emerPrindi = $_SESSION['emer'];
+        $mbiemerPrindi = $_SESSION['mbiemer'];
+        $query = "select lenda.Emri,user.Emer,user.Mbiemer,user.Email,lenda.Viti from lenda join mesues on mesues.MesuesID=lenda.MesuesID  join user on user.userID=mesues.MesuesID where lenda.viti in (select viti from nxenes where NxenesID in (SELECT nx.userID from user nx 
   INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
   INNER JOIN user p ON p.userID = nxenes.PrindID
   WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ))
   order by viti ASC";
 
 
-    $result = mysqli_query($connect, $query);
+        $result = mysqli_query($connect, $query);
 
-    while ($row = mysqli_fetch_array($result)) {
-        echo "
+        while ($row = mysqli_fetch_array($result)) {
+            echo "
  
  <td >";
-        echo $row['Emri'];
-        echo "</td>
+            echo $row['Emri'];
+            echo "</td>
  <td >";
-        echo $row['Emer']." ".$row['Mbiemer'];
-        echo "</td> <td>";
-        echo $row['Email'];
-        echo "</td><td>";
-        echo $row['Viti'];
-        echo"
+            echo $row['Emer'] . " " . $row['Mbiemer'];
+            echo "</td> <td>";
+            echo $row['Email'];
+            echo "</td><td>";
+            echo $row['Viti'];
+            echo "
 </td>
 
          </tr>";
-    };
-    echo "</table></body></html>";
+        };
+        echo "</table></body></html>";
 
 
+    }else{
+        header("location:error.html");
+    }
 }

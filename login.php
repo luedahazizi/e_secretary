@@ -40,13 +40,13 @@ if(isset($_POST['username'])&& isset($_POST['password'])) {
                 $emerPrindi = $_SESSION['emer'];
                 $mbiemerPrindi = $_SESSION['mbiemer'];
 
-                    header("location:prind.php");
-                
+                header("location:prind.php");
+
             } else {
                 header("location:form.html");
             }
         } else {
-                echo 1;
+            echo 1;
         }
 
     } else{

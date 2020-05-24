@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-    echo "<html><head>
+    if($_SESSION['role']=='nxenes') {
+        echo "<html><head>
 </head>
 <style>
 body{background-image: url(\"https://i.pinimg.com/564x/a7/70/13/a77013e286870cf305d06dd494ff4e37.jpg\");
@@ -136,38 +137,41 @@ function Search(){
 <br>
 ";
 
-    $emer = $_SESSION['emer'];
-    $mbiemer = $_SESSION['mbiemer'];
+        $emer = $_SESSION['emer'];
+        $mbiemer = $_SESSION['mbiemer'];
 
-    $query = "Select mungesat.mungesaID,  lenda.emri,mungesat.data from user
+        $query = "Select mungesat.mungesaID,  lenda.emri,mungesat.data from user
 Inner join mungesat on mungesat.NxenesId = user.userid
 Inner join lenda on lenda.lendaId = mungesat.lendaid
 Where user.userid=(select userID from User where emer='$emer' and mbiemer='$mbiemer')
-  order by  data desc" ;
+  order by  data desc";
 
-    $result = mysqli_query($connect, $query);
+        $result = mysqli_query($connect, $query);
 
 
-
-     echo "<table id='attendance'>
+        echo "<table id='attendance'>
 <th style='display: none'>ID</th>
 <th>Subject</th>
 <th>Date</th>
 <tr>";
         while ($row = mysqli_fetch_array($result)) {
 
-            echo"<td style='display: none'>";
+            echo "<td style='display: none'>";
             echo $row['mungesaID'];
-            echo" <td>";
+            echo " <td>";
             echo $row['emri'];
-            echo"</td> <td>";
+            echo "</td> <td>";
             echo $row['data'];
-            echo"</td>
+            echo "</td>
          </tr>";
         };
 
         echo "</table></body></html>";
 
 
+    }
+    else{
+        header("location:error.html");
 
+    }
     }

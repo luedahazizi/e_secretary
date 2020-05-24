@@ -1,21 +1,19 @@
 <?php
 include("connection.php");
 session_start();
-if (!isset($_SESSION['loggedin'])) {
+if (!isset($_SESSION['loggedin']) ){
     header('Location: form.html');
     exit;
 }
 
 else {
-    if(isset($_POST['femije'])){
-        $femija  = $_POST['femije'];
-        $_SESSION['femije'] = $femija;
-    }
+if($_SESSION['role']=='prind'){
 
     echo "
     <!DOCTYPE html>
 <html lang=\"en\">
 <head>
+<link href='https://fonts.googleapis.com/css?family='ChelseaMarket' rel='stylesheet'>
     <meta charset=\"UTF-8\">
     <title>Prindi</title>
 
@@ -23,6 +21,7 @@ else {
         #esecretary{
             font-size: 20px;
             color: darkgray;
+            font-family:Candara;
         }
         body{
             background-color: white;
@@ -56,7 +55,7 @@ else {
         #parentname{
             left: 1200px;
             position:relative;
-            top: 50px;
+            top: -35px;
             font-size: 20px;
             color:black ;
             
@@ -66,7 +65,7 @@ else {
         left:420px;
         width: 500px;
         height:450px;
-        top: -680px;
+        top: -650px;
         }
         #text{
         position: relative;
@@ -106,7 +105,7 @@ else {
   color: white;
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
 .dropdown-container {
   display: none;
   background-color: whitesmoke;
@@ -122,8 +121,8 @@ else {
 <div id=\"upperpannel\">
     <h4 id=\"esecretary\"><u>E_secretary</u></h4>
     
-    <h4 id=\"parentname\">";
-       echo $_SESSION['emer'] . "  " . $_SESSION['mbiemer'];
+    <h4 id=\"parentname\"><img src='https://image.flaticon.com/icons/png/512/44/44948.png' style='width:20px ;height:20px;'>";
+       echo $_SESSION['emer'].'  '.$_SESSION['mbiemer'];
     echo "</h4>
 </div>
 <div id=\"content\">
@@ -134,18 +133,18 @@ else {
 
 <div class='sidenav'>
     
-    <a href=\"attendance.php\" id=\"attendance\">Attendance</a> <br>
-    <a href=\"marks.php\" id=\"marks\">Marks</a><br>
-    <a href=\"subjects.php\" id=\"subjects\">Subjects</a><br>
-    <a href=\"notifications.php\" id=\"notifications\">Notifications</a><br>
-    <a href=\"pagesa.php\" id=\"payment\">Payment</a><br>
-    <button class=\"dropdown-btn\">Settings
+    <a href=\"attendance.php\" id=\"attendance\"><img src='https://image.flaticon.com/icons/png/512/42/42446.png' style='width:25px ;height:25px;'> Attendance</a> <br>
+    <a href=\"marks.php\" id=\"marks\"><img src='https://www.shareicon.net/data/512x512/2016/08/06/807541_edit_512x512.png' style='width:25px ;height:25px;'>Marks</a><br>
+    <a href=\"subjects.php\" id=\"subjects\"><img src='https://uk-dc.org/wp-content/uploads/2018/07/book-stack.png' style='width:25px ;height:25px;'>Subjects</a><br>
+    <a href=\"notifications.php\" id=\"notifications\"><img src='https://www.freeiconspng.com/uploads/bell-icon-16.png' style='width:25px ;height:25px;'>Notifications</a><br>
+    
+    <button class=\"dropdown-btn\"><img src='https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png' style='width:25px ;height:25px;'>Settings
     <i class=\"fa fa-caret-down\"></i>
   </button>
   <div class=\"dropdown-container\">
-    <a href=\"personaldata.php\">Personal Data</a>
-    <a href=\"changepass.php\">Change Password</a>
-    <a href=\"LogOut.php\">Logout</a>
+    <a href=\"personaldata.php\"><img src='https://image.flaticon.com/icons/png/512/36/36069.png' style='width:25px ;height:25px;'>Personal Data</a>
+    <a href=\"changePassParent.php\"><img src='https://f1.pngfuel.com/png/518/221/75/password-symbol-key-user-interface-project-pictogram-logo-png-clip-art.png' style='width:25px ;height:25px;'>Change Password</a>
+    <a href=\"LogOut.php\"><img src='https://cdn.onlinewebfonts.com/svg/img_47628.png' style='width:25px ;height:25px;'>Logout</a>
   </div>
 </div>
 <div id='content'>
@@ -153,12 +152,9 @@ else {
 </div>
 <div id='text'>
 <h5>Hello .This page is dedicated to you.Here you can find information about your child.Click in the left menu to access some services we have provided for you.
-</h5><h5>In the attendance  section you will find the dates and subjects in which your child was absenth.</h5><h5>In the marks section you will find a 
+</h5><h5>In the <b>attendance</b>  section you will find the dates and subjects in which your child was absent.</h5><h5>In the<b> marks</b> section you will find a 
 list of marks in each subject.</h5><h5>You can also 
- find a list of subjects and the teachers in the subjects section and notifications in the notification section.</h5><h5>
- We have also provided the Online Payment service using PAYPAL.</h5><h5>
- You can access the service in the payments section.
- </h5><h5>If you have any further question please contact us at the following email adress.</h5>
+ find a list of subjects and the teachers in the <b>subjects</b> section and notifications in the<b> notification</b> section.</h5><h5>If you have any further question please contact us at the following email adress.</h5>
  
 </div>
 <script>
@@ -183,5 +179,8 @@ for (i = 0; i < dropdown.length; i++) {
 </html>
 ";
 }
-
+else{
+    header("location:error.html");
+}
+}
 ?>

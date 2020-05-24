@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-    echo "<html>
+    if($_SESSION['role']=='prind') {
+        echo "<html>
 <head>
 <style>
 body{
@@ -89,25 +90,25 @@ function Search(){
 <input type='text' id='search' onkeyup='Search()' placeholder='Search..'>
 <br/>
 ";
-    $emerPrindi = $_SESSION['emer'];
-    $mbiemerPrindi = $_SESSION['mbiemer'];
+        $emerPrindi = $_SESSION['emer'];
+        $mbiemerPrindi = $_SESSION['mbiemer'];
 
-    $query = " select user.emer ,user.Mbiemer ,lenda.Emri,notat.Vleresimi,notat.Pershkrimi 
+        $query = " select user.emer ,user.Mbiemer ,lenda.Emri,notat.Vleresimi,notat.Pershkrimi 
   from notat  join lenda on notat.LendaID=lenda.LendaID join user on user.userID=notat.NxenesID where NxenesID in(SELECT nx.userID from user nx 
   INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
   INNER JOIN user p ON p.userID = nxenes.PrindID
   WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' )";
 
 
-    $result = mysqli_query($connect, $query);
-    $gjejFemije = "SELECT nx.userID from user nx 
+        $result = mysqli_query($connect, $query);
+        $gjejFemije = "SELECT nx.userID from user nx 
   INNER JOIN nxenes ON nxenes.NxenesID = nx.userID
   INNER JOIN user p ON p.userID = nxenes.PrindID
   WHERE p.Emer = '$emerPrindi' and p.Mbiemer ='$mbiemerPrindi' ";
-    $result1 = mysqli_query($connect, $gjejFemije);
+        $result1 = mysqli_query($connect, $gjejFemije);
 
-    if (mysqli_num_rows($result1) > 1) {
-        echo "<table id='marks'>
+        if (mysqli_num_rows($result1) > 1) {
+            echo "<table id='marks'>
 <th>Name</th>
 <th>Subject</th>
 <th>Mark</th>
@@ -116,35 +117,34 @@ function Search(){
 <tr>";
 
 
-        while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) {
 
-            echo "<td>";
-            echo $row['emer'] . " " . $row['Mbiemer'];
-            echo " </td>
+                echo "<td>";
+                echo $row['emer'] . " " . $row['Mbiemer'];
+                echo " </td>
  
  <td >";
-            echo $row['Emri'];
-            echo "</td>
+                echo $row['Emri'];
+                echo "</td>
  <td >";
-            echo $row['Vleresimi'];
-            echo "</td>
+                echo $row['Vleresimi'];
+                echo "</td>
  <td >";
-            echo $row['Pershkrimi'];
-            echo "
+                echo $row['Pershkrimi'];
+                echo "
  </td>
  <td>";
-            if ($row['Vleresimi'] > 4) {
-                echo "Passed";
-            } else {
-                echo "Failed";
+                if ($row['Vleresimi'] > 4) {
+                    echo "Passed";
+                } else {
+                    echo "Failed";
+                }
+                echo "</td> </tr>";
             }
-            echo "</td> </tr>";
-        }
 
-        echo "</table></body></html>";
-    }
-    else{
-        echo "<table id='marks'>
+            echo "</table></body></html>";
+        } else {
+            echo "<table id='marks'>
 <th>Subject</th>
 <th>Mark</th>
 <th>Description</th>
@@ -152,30 +152,35 @@ function Search(){
 <tr>";
 
 
-        while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) {
 
-            echo "
+                echo "
  
  <td >";
-            echo $row['Emri'];
-            echo "</td>
+                echo $row['Emri'];
+                echo "</td>
  <td >";
-            echo $row['Vleresimi'];
-            echo "</td>
+                echo $row['Vleresimi'];
+                echo "</td>
  <td >";
-            echo $row['Pershkrimi'];
-            echo "
+                echo $row['Pershkrimi'];
+                echo "
  </td>
  <td>";
-            if ($row['Vleresimi'] > 4) {
-                echo "Passed";
-            } else {
-                echo "Failed";
+                if ($row['Vleresimi'] > 4) {
+                    echo "Passed";
+                } else {
+                    echo "Failed";
+                }
+                echo "</td> </tr>";
             }
-            echo "</td> </tr>";
+
+            echo "</table></body></html>";
+
         }
-
-        echo "</table></body></html>";
-
     }
+    else{
+        header("location:error.html");
+    }
+
 }

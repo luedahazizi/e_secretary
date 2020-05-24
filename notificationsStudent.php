@@ -6,7 +6,8 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 else {
-    echo "<html>
+    if($_SESSION['role']=='nxenes') {
+        echo "<html>
 <head>
 <title>Notifications</title>
 <style>
@@ -56,38 +57,42 @@ body{
 <body><div id='titull'>
 <h1>Notifications</h1>
 <h4>Here you can find publications and notifications that we post for activities,meetings,exams and more</h4></div>";
-    $query = "SELECT titull,permbajtja,lloji,data,Attachments FROM publikime  order by data desc ";
-    $result = mysqli_query($connect, $query);
-    while ($row = mysqli_fetch_array($result)) {
-        $adresa = "http:\\e_secretary\\uploads\\" . $row["Attachments"];
-        $lloj = substr($adresa, -3);
+        $query = "SELECT titull,permbajtja,lloji,data,Attachments FROM publikime  order by data desc ";
+        $result = mysqli_query($connect, $query);
+        while ($row = mysqli_fetch_array($result)) {
+            $adresa = "http:\\e_secretary\\uploads\\" . $row["Attachments"];
+            $lloj = substr($adresa, -3);
 
-        if ($lloj == 'jpg' || $lloj == 'gif' || $lloj == 'tif' || $lloj == 'png') {
-            echo "<div id='notification'><h4 id='Data'><i>Date: ";
-            Echo $row["data"];
-            echo "</i></h4><h3 id='titull'>";
-            echo $row["titull"];
-            echo "</h3>
+            if ($lloj == 'jpg' || $lloj == 'gif' || $lloj == 'tif' || $lloj == 'png') {
+                echo "<div id='notification'><h4 id='Data'><i>Date: ";
+                Echo $row["data"];
+                echo "</i></h4><h3 id='titull'>";
+                echo $row["titull"];
+                echo "</h3>
             <a href='" . $adresa . "' download>    <img src='" . $adresa . "' style='height: 300px; width: 500px'></a>
                         <h4 id='content'>Content:";
-            echo $row["permbajtja"];
-            echo "</h4>
+                echo $row["permbajtja"];
+                echo "</h4>
        </div><br>";
 
-        } else {
-            echo "<div id='notification'><h4 id='Data'><i>Date: ";
-            Echo $row["data"];
-            echo "</i></h4><h3 id='titull'>";
-            echo $row["titull"];
-            echo "</h3> <h4 id='click'>Click over the arrow to download the file:</h4>
+            } else {
+                echo "<div id='notification'><h4 id='Data'><i>Date: ";
+                Echo $row["data"];
+                echo "</i></h4><h3 id='titull'>";
+                echo $row["titull"];
+                echo "</h3> <h4 id='click'>Click over the arrow to download the file:</h4>
             <a href='" . $adresa . "' download id='link'><img src='https://cdn.windowsreport.com/wp-content/uploads/2019/04/download-Windows-10-v1809-ISO-files.png'
              width='100px' height='100px'></a>
                         <h4 id='content'>Content:";
-            echo $row["permbajtja"];
-            echo "</h4>
+                echo $row["permbajtja"];
+                echo "</h4>
        </div><br>";
-        }
-        echo "
+            }
+            echo "
 </body></html>";
+        }
+    }
+    else{
+        header("location:error.html");
     }
 }

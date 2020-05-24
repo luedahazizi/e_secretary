@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: form.html');
     exit;
 }
-else {
+else { if($_SESSION['role']=='nxenes') {
     echo "<html>
 <head>
 <style>
@@ -114,7 +114,7 @@ function Search(){
         echo $row['Emri'];
         echo "</td>
  <td >";
-        echo $row['Emer']." ".$row['Mbiemer'];
+        echo $row['Emer'] . " " . $row['Mbiemer'];
         echo "</td> <td>";
         echo $row['Email'];
         echo "</td>
@@ -123,5 +123,8 @@ function Search(){
     };
     echo "</table></body></html>";
 
-
+}
+else{
+    header("location:error.html");
+}
 }

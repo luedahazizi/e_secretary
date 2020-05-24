@@ -1,5 +1,10 @@
 <?php
 require_once ('config.php');
+if(isset($_GET['id'])){
+    $lendaID = $_GET['id'];
+    mysqli_query($conn,"DELETE FROM orari WHERE OrariID=$lendaID");
+    echo "<script>window.open('subject.php?mes=Data Deleted..','_self')</script>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +77,47 @@ require_once ('config.php');
   <button type="submit" name="add" class="btn_publish">Add</button>
         </form>
     </div>
+    <div class="tbox">
+            <h3 style="margin-top:30px;"> Timetable Details</h3><br>
+            <?php
+            if(isset($_GET["mes"]))
+            {
+                echo "<div class='error'>{$_GET["mes"]}</div>";
+            }
+            ?>
+            <table border="1px">
+                <tr>
+                <th>Nr.</th>
+                    <th>Viti</th>
+                    <th>Paraleli</th>
+                    <th>Dita</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                <?php
+                $lendet="select * FROM  orari";
+                $res=$conn->query($lendet);
+                if($res->num_rows>0){
+                    $i=0;
+                    while($r=$res->fetch_assoc()){
+                        $i++;
+                        echo "<tr>
+                        <td>{$i}</td>
+                        <td>{$r["Viti"]}</td>
+                        <td>{$r["Paraleli"]}</td>
+                        <td>{$r['Dita']}</td>
+                        
+                        <td><a href='addtimetable.php?id={$r["LendaID"]}' class='btn_delete'>Delete</td>
+                        </tr>";
+                    }
+                }
+                else{
+                    echo("Error description: " . mysqli_error($conn));
+                }
+                ?>
+        </table>
+    </div>
 </div>
+
     
 </body>
 </html>

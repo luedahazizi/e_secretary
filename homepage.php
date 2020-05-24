@@ -7,6 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 else {
+  if (isset($_SESSION['role'])=='admin') {
 
   echo "
 
@@ -80,5 +81,8 @@ else {
 
 </body>
 ";
+}else {
+  header("location:error.html");
+}
 }
 ?>

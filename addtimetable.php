@@ -46,7 +46,7 @@ require_once ('config.php');
             $notify="insert into orari (Viti,Paraleli,Dita,Ora,LendaID) values ($viti,'$paraleli','$dita','$ora', $row1[LendaID])";
             if($conn ->query($notify)){
               
-                echo("Error description: " . mysqli_error($conn));
+                echo "<div class='success'>Insert success</div>";
             }
         }
            else {

@@ -13,8 +13,11 @@
 
 <body>
 <?php include_once('config.php');
+if ($_SESSION['role']!='prind'){
+    header("location:error.html");
+}
 
-if (isset($_SESSION['login']) && $_SESSION['role']=='prind') {
+if (isset($_SESSION['login']) ) {
 
     $email = $_POST['useremail'];
     $opwd = $_POST['opwd'];

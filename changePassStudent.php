@@ -12,9 +12,13 @@
 </head>
 
 <body>
-<?php include_once('connection.php');
+<?php include_once('config.php');
+if ($_SESSION['role']!='nxenes'){
+    header("location:error.html");
+}
 
-if (isset($_POST['Submit'])) && (S_SESSION['role']=='nxenes') {
+
+if (isset($_SESSION['login']) ) {
 
     $email = $_POST['useremail'];
     $opwd = $_POST['opwd'];
@@ -26,7 +30,7 @@ if (isset($_POST['Submit'])) && (S_SESSION['role']=='nxenes') {
     $num = mysqli_fetch_array($query);
 
     if ($num > 0) {
-        $connect = mysqli_query($connect, "UPDATE user SET Password = '$npwd' WHERE Email = '$email'");
+        $connect = mysqli_query($conn, "UPDATE user SET Password = '$npwd' WHERE Email = '$email'");
         echo "<div class='success'>Insert success</div>";
     } else {
         echo "<div class='error'>Teacher don't exist</div>";

@@ -1,6 +1,7 @@
 <?php
 require_once('config.php'); 
 include('editteacher.php');
+include('access.php');
 if (isset($_GET['edit'])) {
     
     

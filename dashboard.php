@@ -20,7 +20,7 @@ include "homepage.php";
 <h1 style="margin-top:10px; margin-left:43%; margin-bottom:4px;font-size:40px; " >Welcome  <?php echo  $_SESSION['emer'] ?></h1>
 <div style="display: flex;">
 
-  <div class="w3-card-4" style="width:10%; margin-left:25%;margin-top:1%;background:rgb(250, 250, 242);box-shadow:20px 20px 10px grey;">
+  <div class="w3-card-4" style="width:10%; margin-left:25%;margin-top:1%;background:rgb(242, 250, 250);box-shadow:20px 20px 10px grey;">
     <img src="images/student.jpg" alt="Alps" style="width:50%; margin-left:20%;">
     <div class="w3-container w3-center">
     <?php
@@ -39,7 +39,7 @@ echo "Students: " . $total;
 
 
 
-  <div class="w3-card-4" style="width:10%; margin-left:15%;margin-top:1%;background:rgb(250, 250, 242);box-shadow:20px 20px 10px grey; ">
+  <div class="w3-card-4" style="width:10%; margin-left:15%;margin-top:1%;background:rgb(242, 250, 250);box-shadow:20px 20px 10px grey; ">
     <img src="images/admin.png" alt="Alps" style="width:50%; margin-left:20%;">
     <div class="w3-container w3-center">
     <?php
@@ -59,7 +59,7 @@ echo "Parent: " . $total;
 
 
 
-  <div class="w3-card-4" style="width:10%; margin-left:15%;margin-top:1%;background:rgb(250, 250, 242);box-shadow:20px 20px 10px grey; ">
+  <div class="w3-card-4" style="width:10%; margin-left:15%;margin-top:1%;background:rgb(242, 250, 250);box-shadow:20px 20px 10px grey; ">
     <img src="images/teacher.jpg" alt="Alps" style="width:50%; margin-left:20%;">
     <div class="w3-container w3-center">
     <?php

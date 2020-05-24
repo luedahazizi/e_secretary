@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 else {
   if (isset($_SESSION['role'])=='admin') {
 
-  header("location:dashboard.php");
+ 
 }else {
     header("location:error.html");
   }

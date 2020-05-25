@@ -1,0 +1,245 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Project Schedule: e-learning portal
+X-WR-TIMEZONE:Europe/Tirane
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20090521
+DTEND;VALUE=DATE:20090522
+DTSTAMP:20090527T191851Z
+UID:l0snarkq1l84qbtan7rn55e1a8@google.com
+CLASS:PRIVATE
+CREATED:20090527T184223Z
+DESCRIPTION:Perfundimi implementimit te  PayPal\, sms-Clickatell dhe mobile
+  (Gerta)\nPerfundimi plotesisht i register dhe login dhe ndertimi i profile
+ ve(Denisa)\nPerfundimi plotesisht i designit te homepage\, fq. se lendes dh
+ e materialeve.(Drivalda)\nShtimi i funksioneve shtese ne fq e lendeve\, mat
+ erialeve dhe postimeve.(Lorida)\nPerfundimi i hi-tech dhe ngarkimit te prod
+ ukteve per to.(Eni)\nImplementimi i funksionit per rritjen e sigurise dhe m
+ e pas perdorimi i tij ne pikat ku mund te thyhet siguria(Gerta)
+LAST-MODIFIED:20090527T190617Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontrolli i perfundimit te detyrave!
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20090514
+DTEND;VALUE=DATE:20090515
+DTSTAMP:20090527T191851Z
+UID:nafnt2isivgu1sksfqniu5ghjg@google.com
+CLASS:PRIVATE
+CREATED:20090527T183559Z
+DESCRIPTION:Homepage i mbaruar(Drivalda)\nRegister pjeserisht(Denisa)\nLogi
+ n pjeserisht(Denisa)\nHedhja e materialeve mbaroi\, por mund te plotesohen 
+ dhe me te tjera dhe fillimi i ndertimit te hi-tech.(Eni)\nFillimi i ndertim
+ it te faqes se komenteve(Lorida)\nImplementimi i PayPal dhe testimi i tij(G
+ erta)\nBackup i gjithe aplikacionit te deritanishem(Gerta)
+LAST-MODIFIED:20090527T190455Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontroll i perfundimit te detyrave te prapambetura.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20090524
+DTEND;VALUE=DATE:20090525
+DTSTAMP:20090527T191851Z
+UID:2d21r3seurs3ah8dkjupkrstb8@google.com
+CLASS:PRIVATE
+CREATED:20090527T184901Z
+DESCRIPTION:Testime te vazhdueshme te gjithe pjeseve te mbaruara dhe ndihme
+ sa dhe korrigjime ne te tjera ne proces e siper(Gerta)\nRegjistrimi i websi
+ te ne google(krijimi i nje sitemap\, robots.txt\, vendosja e meta tags)(Ger
+ ta)\nRealizimi i design i fq te mbetura(Drivalda)\nPerfundimi i fq Suport(E
+ ni)\nTestime te fq te lendeve\,materialev\,komenteve(Lorida)\n\nDetyre: Rea
+ lizimi ne PowerPoint i pjeseve te gjithe secilit.
+LAST-MODIFIED:20090527T190351Z
+LOCATION:ne shtepine e Lorides.
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontrolle dhe testime te detyrave!
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20090526
+DTEND;VALUE=DATE:20090527
+DTSTAMP:20090527T191851Z
+UID:nuoo6nf58ol90bnjjlom12qc7o@google.com
+CLASS:PRIVATE
+CREATED:20090527T185604Z
+DESCRIPTION:Testime dhe korrigjime te vogla te pjeseve te fundit te perfund
+ uara si profileve(Gerta)\nBackup i gjithe aplikacionit(Gerta)\nKrijimi i nj
+ e prezantimi te bukur te gjithe punes tone dhe prova perfundimtare te tij.
+LAST-MODIFIED:20090527T185928Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Prova gjenerale per prezantimin
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20090507
+DTEND;VALUE=DATE:20090508
+DTSTAMP:20090527T191851Z
+UID:se66nqi237vml1f06qshu9f50o@google.com
+CLASS:PRIVATE
+CREATED:20090527T182143Z
+DESCRIPTION:Login\, Regjister(Denisa)\, Design i Homepage(Drivalda) plotesi
+ shte jo te mbaruara.\nFaqet e adminit\, testimet ne host kaluan me sukses d
+ he u shtuan funksionalitete te reja.(Gerta)\nFaqja e materialeve e mbaruar 
+ pjeserisht(Lorida)\nVazhdim i hedhjes se materialeve nga nderfaqja admin.(E
+ ni)
+LAST-MODIFIED:20090527T183514Z
+LOCATION:shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: kontroll dhe caktime detyrash!
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090430T083000Z
+DTEND:20090430T093000Z
+DTSTAMP:20090527T191851Z
+UID:ipcshvuq2dglunoqg06nsnlntc@google.com
+CLASS:PRIVATE
+CREATED:20090427T193632Z
+DESCRIPTION:Do te shihet realizimi i login dhe fq se lendeve\, perkatesisht
+  nga Denisa dhe Lorida.\nDhe do te vazhdojne detyrat e dhena ne takimin par
+ aardhes.
+LAST-MODIFIED:20090427T193632Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takimi: Kontrolli i perfundimit te detyrave!
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090428T083000Z
+DTEND:20090428T093000Z
+DTSTAMP:20090527T191851Z
+UID:js04v9b6q7r8qphkcsksnbppm0@google.com
+CLASS:PRIVATE
+CREATED:20090427T192942Z
+DESCRIPTION:Dorezimet e pritshme:\nFq register(Denisa)\nAdmin te pages te p
+ lotesuara nga design(Drivalda)\nMaterialet e organizuara per secilin kurs(E
+ ni)\n\nPer heren tjeter:\nTestimi ne host i admin pages(Gerta)\nFq e lendev
+ e e loguar(Lori)\nFq e login(Denisa)\nHomepage deri 07.05.09(Drivalda)\nHed
+ hja e materialeve per cdo kurs(Eni)
+LAST-MODIFIED:20090427T192942Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: kontrolli i dorezimeve
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090414T080000Z
+DTEND:20090414T090000Z
+DTSTAMP:20090527T191851Z
+UID:kj90kn96tqq1pl9qqthtcki9qg@google.com
+CLASS:PRIVATE
+CREATED:20090406T202657Z
+DESCRIPTION:Caktimi i detyrave te reja te javes:\nEni: mbledhja e materiale
+ ve per kurset\nDenisa: perfundimi i register\nDrivalda: perfundim i menuse 
+ dhe layout i homepage\nLorida: ndertimi i fq se nje lende\nGerta:ndertim i 
+ fq admin te materialeve
+LAST-MODIFIED:20090427T191240Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontroll per realizimin e detyrave dhe rishikim i tyre
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090421T080000Z
+DTEND:20090421T090000Z
+DTSTAMP:20090527T191851Z
+UID:dav5dijb28ag4cepmlga2u9ksg@google.com
+CLASS:PRIVATE
+CREATED:20090406T204232Z
+DESCRIPTION:Do te shikohet me vemendje realizimi ose jo i sakte i detyrave 
+ duke pare dhe sygjerimet e ndryshme dhe zgjidhja e problemeve qe mund te ke
+ te dale gjate implementimit.\n\nPas takimit: disa prej puneve nuk kane perf
+ unduar dhe mbeten ne fuqi perseri per javen ne vazhdim. Ndersa te tjeret qe
+  kane mbaruar do ti caktohen punet e reja:\n\nGerta- ndertimi i fq se admin
+  per hi-tech \nLorida- perfundimi i fq se lendes(versioni i loguar)
+LAST-MODIFIED:20090421T153311Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontrolli ne realizimin e detyrave te javes!
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090410T103000Z
+DTEND:20090410T113000Z
+DTSTAMP:20090527T191851Z
+UID:pdqu8in1bk2ho3v870fquenckg@google.com
+CLASS:PRIVATE
+CREATED:20090406T202122Z
+DESCRIPTION:1.Eni : mbledhja e inf. per hitech\n2.Denisa: ndertimi i formes
+  se register \n3.Drivalda: menu e homepage\n4.Lorida: ndertimi i menuse se 
+ lendeve +postimet tek hp\n5.Gerta: ndertimi i fq. administrimit te userave
+LAST-MODIFIED:20090413T131913Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: ndarja e puneve per fundjaven
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090407T080000Z
+DTEND:20090407T090000Z
+DTSTAMP:20090527T191851Z
+UID:n3lnnpkeoifl4du24cbqrev7u8@google.com
+CLASS:PRIVATE
+CREATED:20090401T141747Z
+DESCRIPTION:Konkludimi i prototipeve per cdo modul dhe realizimi i tyre nga
+  secili person ne visio.\n
+LAST-MODIFIED:20090412T180007Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim: Kontrolli i perfundimit te puneve dhe rishikimi i tyre
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090403T103000Z
+DTEND:20090403T113000Z
+DTSTAMP:20090527T191851Z
+UID:na2v0mmrosfp3nenrcndbcq6is@google.com
+CLASS:PRIVATE
+CREATED:20090401T135543Z
+DESCRIPTION:Drivalda: logo+ prototipi i homepage\nLorida: prototipi i fq. s
+ e lendes\nDenisa: prototipi i register dhe profile\nEni: Krijimi i DB se us
+ ers dhe content\nGerta: prototipi i admin pages
+LAST-MODIFIED:20090406T201937Z
+LOCATION:ne shkolle
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Takim me grupin: Ndarja e detyrave per fundjaven!
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20090401T103000Z
+DTEND:20090401T113000Z
+DTSTAMP:20090527T191851Z
+UID:agd1imlo0imcp4fd8860gcq4po@google.com
+CLASS:PRIVATE
+CREATED:20090331T184616Z
+DESCRIPTION:Denisa: skica e register dhe profileve te userave\nDrivalda: sk
+ ica e detajuar e homepage me elemente te design\nLorida: skica e faqes se d
+ yte\nGerta & Eni: design i DB
+LAST-MODIFIED:20090401T131547Z
+LOCATION:Te shkolla
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Takim me grupim: Perfundimi i design te faqeve dhe DB (vetem skica)
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
